@@ -20,7 +20,7 @@ export default function ResumeClientPage() {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
 
   return (
-    <main className="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-12 md:p-16 relative">
+    <main className="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-12 md:p-16">
       <div className="flex justify-center">
         <section className="mx-auto w-full max-w-2xl space-y-8 bg-white print:space-y-4">
           <div className="flex flex-col items-center justify-center">
@@ -138,8 +138,6 @@ export default function ResumeClientPage() {
 
         </section>
 
-        
-
         {/* Drawer trigger button - visible on small screens */}
         <div className="fixed right-0 top-1/2 -translate-y-1/2 block md:hidden">
           <Drawer direction="right" open={isDrawerOpen} onOpenChange={setDrawerOpen}>
@@ -211,7 +209,7 @@ export default function ResumeClientPage() {
       </div>
 
         {/* Responsive button column - hidden on small screens */}
-        <div className="hidden flex-col gap-y-2 print:hidden md:flex fixed top-1/2 -translate-y-1/2 responsive-button-column">
+        <div className="contact-buttons-container">
           {RESUME_DATA.contact.email ? (
             <Button
               className="size-8"

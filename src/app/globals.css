@@ -79,14 +79,19 @@
   page-break-before: always;
 }
 
-@media (min-width: 768px) {
-  .responsive-button-column {
-    right: calc((100vw - 48rem) / 2 - 4rem);
-  }
+.contact-buttons-container {
+  display: none;
 }
 
-@media (min-width: 900px) {
-  .responsive-button-column {
-    right: 1rem;
+@media (min-width: 768px) {
+  .contact-buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    right: max(1rem, calc((100vw - 48rem) / 2 - 4rem));
+    transition: right 0.3s ease-in-out;
   }
 }
