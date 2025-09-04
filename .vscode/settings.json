@@ -1,6 +1,0 @@
-{
-    "CodeGPT.Autocomplete.enabled": true,
-    "CodeGPT.Autocomplete.maxTokens": 4000,
-    "CodeGPT.Autocomplete.provider": "Ollama - llama3:70b-instruct",
-    "CodeGPT.apiKey": "CodeGPT Plus Beta"
-}

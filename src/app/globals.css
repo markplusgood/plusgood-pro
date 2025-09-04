@@ -68,7 +68,7 @@
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-[color:var(--border)];
   }
   body {
     @apply bg-background text-foreground;
@@ -77,4 +77,16 @@
 
 .print-force-new-page {
   page-break-before: always;
+}
+
+@media (min-width: 768px) {
+  .responsive-button-column {
+    right: calc((100vw - 48rem) / 2 - 4rem);
+  }
+}
+
+@media (min-width: 900px) {
+  .responsive-button-column {
+    right: 1rem;
+  }
 }

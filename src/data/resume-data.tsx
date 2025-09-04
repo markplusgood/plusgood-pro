@@ -21,7 +21,7 @@ export const RESUME_DATA = {
   location: "Georgia, GET",
   locationLink: "https://maps.app.goo.gl/KyTruQPXLKrH3yUj8",
   about:
-    "Support automation engineer",
+    "AI Automation Engineer | Customer Advocate | Team Lead",
   summary:
     "Passionate Customer Advocate and Automation Engineer with extensive work experience across diverse industries and cultures. I am dedicated to creating exceptional customer experiences and leveraging technology to make this world a better place.",
   avatarUrl: "https://raw.githubusercontent.com/markplusgood/plusgood.pro/main/src/images/avatar.jpeg",

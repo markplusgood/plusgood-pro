@@ -12,7 +12,9 @@ module.exports = {
     container: {
       center: true,
       padding: "2rem",
-      screens: {
+            screens: {
+        "md": "768px",
+        "lg": "900px",
         "2xl": "1400px",
       },
     },
@@ -80,4 +82,5 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
+  // Trigger recompile
 }
