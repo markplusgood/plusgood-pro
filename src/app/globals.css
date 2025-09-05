@@ -213,8 +213,8 @@
   }
 }
 
-.skill-badge:hover {
-  background-image: linear-gradient(to right, #fb2c36, #f54900, #ff8904, #ffb900, #ffdf20, #497d00, #9ae600, #00a63e, #002c22, #009966, #005f78, #1c398e, #00a6f4, #312c85, #4d179a, #9810fa, #e12afb, #e60076, #861043, #ec003f, #fb2c36);
+/* .skill-badge:hover {
+  background-image: linear-gradient(33deg, #fb2c36, #f54900, #ff8904, #ffb900, #ffdf20, #497d00, #9ae600, #00a63e, #002c22, #009966, #005f78, #1c398e, #00a6f4, #312c85, #4d179a, #9810fa, #e12afb, #e60076, #861043, #ec003f, #fb2c36);
   background-size: 2000% 100%;
   animation: gradient-scroll 10s linear infinite;
 }
@@ -228,6 +228,7 @@
     background-position: 100% 50%;
   }
 }
+*/
 
 .normal-blend-mode {
   mix-blend-mode: normal;
