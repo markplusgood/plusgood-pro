@@ -130,7 +130,7 @@ export default function ResumeClientPage() {
             <div className="flex flex-wrap gap-1">
               {RESUME_DATA.skills.map((skill: Skills) => {
                 return (
-                  <Badge className="print:text-[10px]" key={skill}>
+                  <Badge className="print:text-[10px] skill-badge" key={skill}>
                     {skill}
                   </Badge>
                 );
@@ -154,25 +154,29 @@ export default function ResumeClientPage() {
               <div className="p-4 flex flex-col gap-y-2">
                 {RESUME_DATA.contact.email ? (
                   <Button
-                    className="size-8"
+                    className="size-8 contact-button"
                     variant="outline"
                     size="icon"
                     asChild
                   >
                     <a href={`mailto:${RESUME_DATA.contact.email}`} target="_blank">
-                      <MailIcon className="size-4" />
+                      <span className="normal-blend-mode">
+                        <MailIcon className="size-4" />
+                      </span>
                     </a>
                   </Button>
                 ) : null}
                 {RESUME_DATA.contact.tel ? (
                   <Button
-                    className="size-8"
+                    className="size-8 contact-button"
                     variant="outline"
                     size="icon"
                     asChild
                   >
                     <a href={`https://t.me/markplusgood`} target="_blank">
-                      <SiTelegram className="size-4" />
+                      <span className="normal-blend-mode">
+                        <SiTelegram className="size-4" />
+                      </span>
                     </a>
                   </Button>
                 ) : null}
@@ -180,26 +184,30 @@ export default function ResumeClientPage() {
                 {RESUME_DATA.contact.social.map((social) => (
                   <Button
                     key={social.name}
-                    className="size-8"
+                    className="size-8 contact-button"
                     variant="outline"
                     size="icon"
                     asChild
                   >
                     <a href={social.url} target="_blank">
-                      <social.icon className="size-4" />
+                      <span className="normal-blend-mode">
+                        <social.icon className="size-4" />
+                      </span>
                     </a>
                   </Button>
                 ))}
 
                 {RESUME_DATA.contact.download ? (
                   <Button
-                    className="size-8"
+                    className="size-8 contact-button"
                     variant="outline"
                     size="icon"
                     asChild
                   >
                     <a href={`/Support automation engineer - Mark Mikhalev - CV.pdf`} target="_blank" download="Mark Mikhalev">
-                      <Download className="size-4" />
+                      <span className="normal-blend-mode">
+                        <Download className="size-4" />
+                      </span>
                     </a>
                   </Button>
                 ) : null}
@@ -214,25 +222,29 @@ export default function ResumeClientPage() {
       <div className="contact-buttons-container">
         {RESUME_DATA.contact.email ? (
           <Button
-            className="size-8"
+            className="size-8 contact-button"
             variant="outline"
             size="icon"
             asChild
           >
             <a href={`mailto:${RESUME_DATA.contact.email}`} target="_blank">
-              <MailIcon className="size-4" />
+              <span className="normal-blend-mode">
+                <MailIcon className="size-4" />
+              </span>
             </a>
           </Button>
         ) : null}
         {RESUME_DATA.contact.tel ? (
           <Button
-            className="size-8"
+            className="size-8 contact-button"
             variant="outline"
             size="icon"
             asChild
           >
             <a href={`https://t.me/markplusgood`} target="_blank">
-              <SiTelegram className="size-4" />
+              <span className="normal-blend-mode">
+                <SiTelegram className="size-4" />
+              </span>
             </a>
           </Button>
         ) : null}
@@ -240,26 +252,30 @@ export default function ResumeClientPage() {
         {RESUME_DATA.contact.social.map((social) => (
           <Button
             key={social.name}
-            className="size-8"
+            className="size-8 contact-button"
             variant="outline"
             size="icon"
             asChild
           >
             <a href={social.url} target="_blank">
-              <social.icon className="size-4" />
+              <span className="normal-blend-mode">
+                <social.icon className="size-4" />
+              </span>
             </a>
           </Button>
         ))}
 
         {RESUME_DATA.contact.download ? (
           <Button
-            className="size-8"
+            className="size-8 contact-button"
             variant="outline"
             size="icon"
             asChild
           >
             <a href={`/Support automation engineer - Mark Mikhalev - CV.pdf`} target="_blank" download="Mark Mikhalev">
-              <Download className="size-4" />
+              <span className="normal-blend-mode">
+                <Download className="size-4" />
+              </span>
             </a>
           </Button>
         ) : null}
