@@ -13,6 +13,8 @@ import { RESUME_DATA } from "@/data/resume-data";
 import { ProjectCard } from "@/components/project-card";
 import { Position } from "@/data/resume-data";
 import { Work } from "@/data/resume-data";
+import { Skills } from "@/data/resume-data";
+import { Education } from "@/data/resume-data";
 import { GoogleTagManager } from '@next/third-parties/google'
 import { useState } from "react";
 
@@ -103,7 +105,7 @@ export default function ResumeClientPage() {
 
           <Section>
             <h2 className="text-xl font-bold">Education</h2>
-            {RESUME_DATA.education.map((education) => {
+            {RESUME_DATA.education.map((education: Education) => {
               return (
                 <Card key={education.school}>
                   <CardHeader>
@@ -126,7 +128,7 @@ export default function ResumeClientPage() {
           <Section>
             <h2 className="text-xl font-bold">Skills</h2>
             <div className="flex flex-wrap gap-1">
-              {RESUME_DATA.skills.map((skill) => {
+              {RESUME_DATA.skills.map((skill: Skills) => {
                 return (
                   <Badge className="print:text-[10px]" key={skill}>
                     {skill}
@@ -208,60 +210,60 @@ export default function ResumeClientPage() {
         <GoogleTagManager gtmId="G-PHBMXCD0E6" />
       </div>
 
-        {/* Responsive button column - hidden on small screens */}
-        <div className="contact-buttons-container">
-          {RESUME_DATA.contact.email ? (
-            <Button
-              className="size-8"
-              variant="outline"
-              size="icon"
-              asChild
-            >
-              <a href={`mailto:${RESUME_DATA.contact.email}`} target="_blank">
-                <MailIcon className="size-4" />
-              </a>
-            </Button>
-          ) : null}
-          {RESUME_DATA.contact.tel ? (
-            <Button
-              className="size-8"
-              variant="outline"
-              size="icon"
-              asChild
-            >
-              <a href={`https://t.me/markplusgood`} target="_blank">
-                <SiTelegram className="size-4" />
-              </a>
-            </Button>
-          ) : null}
+      {/* Responsive button column - hidden on small screens */}
+      <div className="contact-buttons-container">
+        {RESUME_DATA.contact.email ? (
+          <Button
+            className="size-8"
+            variant="outline"
+            size="icon"
+            asChild
+          >
+            <a href={`mailto:${RESUME_DATA.contact.email}`} target="_blank">
+              <MailIcon className="size-4" />
+            </a>
+          </Button>
+        ) : null}
+        {RESUME_DATA.contact.tel ? (
+          <Button
+            className="size-8"
+            variant="outline"
+            size="icon"
+            asChild
+          >
+            <a href={`https://t.me/markplusgood`} target="_blank">
+              <SiTelegram className="size-4" />
+            </a>
+          </Button>
+        ) : null}
 
-          {RESUME_DATA.contact.social.map((social) => (
-            <Button
-              key={social.name}
-              className="size-8"
-              variant="outline"
-              size="icon"
-              asChild
-            >
-              <a href={social.url} target="_blank">
-                <social.icon className="size-4" />
-              </a>
-            </Button>
-          ))}
+        {RESUME_DATA.contact.social.map((social) => (
+          <Button
+            key={social.name}
+            className="size-8"
+            variant="outline"
+            size="icon"
+            asChild
+          >
+            <a href={social.url} target="_blank">
+              <social.icon className="size-4" />
+            </a>
+          </Button>
+        ))}
 
-          {RESUME_DATA.contact.download ? (
-            <Button
-              className="size-8"
-              variant="outline"
-              size="icon"
-              asChild
-            >
-              <a href={`/Support automation engineer - Mark Mikhalev - CV.pdf`} target="_blank" download="Mark Mikhalev">
-                <Download className="size-4" />
-              </a>
-            </Button>
-          ) : null}
-        </div>
+        {RESUME_DATA.contact.download ? (
+          <Button
+            className="size-8"
+            variant="outline"
+            size="icon"
+            asChild
+          >
+            <a href={`/Support automation engineer - Mark Mikhalev - CV.pdf`} target="_blank" download="Mark Mikhalev">
+              <Download className="size-4" />
+            </a>
+          </Button>
+        ) : null}
+      </div>
     </main>
 
   );

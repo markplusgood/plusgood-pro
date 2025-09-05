@@ -6,14 +6,23 @@ export type Position = { // Exporting Position type
   start: string;
   end?: string;
   description: string;
-}
+};
 
 export type Work = {
   company: string;
   link: string;
   badges: readonly string[];
   positions: Position[];
-}
+};
+
+export type Skills = string;
+
+export type Education = {
+  school: string;
+  degree: string;
+  start: string;
+  end: string;
+};
 
 export const RESUME_DATA = {
   name: "Mark Mikhalev",
@@ -41,8 +50,8 @@ export const RESUME_DATA = {
         url: "https://www.linkedin.com/in/markplusgood/",
         icon: LinkedInIcon,
       },
-      
-     
+
+
       /*
       {
         name: "X",
@@ -57,7 +66,7 @@ export const RESUME_DATA = {
       },
     ],
   },
-  
+
   work: [
     {
       company: "TripleTen",
@@ -87,7 +96,7 @@ export const RESUME_DATA = {
         },
       ],
     },
-    
+
     {
       company: "Instaon",
       link: "https://instaon.io/en",
@@ -100,7 +109,7 @@ export const RESUME_DATA = {
           description:
             "Guided hundreds of small businesses and agencies in integrating a novel AI solution into marketing strategies before the AI hype.",
         },
-        
+
       ],
     },
 
@@ -183,7 +192,7 @@ export const RESUME_DATA = {
     "Conflict Resolution",
     "Proactive Problem-Resolution",
 
-  ],
+  ] as Skills[],
 
   education: [
     {
@@ -192,7 +201,7 @@ export const RESUME_DATA = {
       start: "",
       end: "",
     },
-  ],
+  ] as Education[],
 
   /*  
   projects: [
