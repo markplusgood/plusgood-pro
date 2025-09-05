@@ -1,6 +1,0 @@
-Project Requirements:
-1. Main subheader (AI Automation Engineer | Customer Advocate | Team Lead) line breaking logic should be as follows: the  'Customer Advocate' and  'Team Lead' must only be moved to a new line completely. Moving only 'Lead'
-or only 'Advocate' is unacceptable. When any one of those items gets moved to a new line, the preceding '|' divider must disappear via the most reliable method, so that the first line doesn't get left ending with the divider.
-2. The codebase is optimized and all dependencies and libraries are updated to the latest stable versions that work together seamlessly. There are no elements, styles, files, or whatever else redundancies that don't serve a function or make the code clunky.
-3. The gradient on hover in the Skills section must start from a random position with each new hover.
-4. The buttons shoud have descriptive tooltips.

@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Drawer, DrawerTrigger, DrawerContent } from "@/components/ui/drawer";
 import { CommandMenu } from "@/components/command-menu";
 import { Section } from "@/components/ui/section";
+import { SmartLineBreak } from "@/components/SmartLineBreakProps";
 import { GlobeIcon, MailIcon, PhoneIcon, Download, MenuIcon } from "lucide-react";
 import { SiTelegram } from '@icons-pack/react-simple-icons';
 import { Button } from "@/components/ui/button";
@@ -28,9 +29,10 @@ export default function ResumeClientPage() {
           <div className="flex flex-col items-center justify-center">
             <div className="space-y-1.5 text-center">
               <h1 className="text-2xl font-bold">{RESUME_DATA.name}</h1>
-              <p className="max-w-md text-pretty font-mono text-sm text-muted-foreground print:text-[12px]">
-                {RESUME_DATA.about}
-              </p>
+              <SmartLineBreak
+                text={RESUME_DATA.about}
+                className="max-w-md text-pretty font-mono text-sm text-muted-foreground print:text-[12px]"
+              />
               <p className="max-w-md items-center text-pretty font-mono text-xs text-muted-foreground">
                 <a
                   className="inline-flex gap-x-1.5 align-baseline leading-none hover:underline"

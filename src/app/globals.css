@@ -232,3 +232,19 @@
 .normal-blend-mode {
   mix-blend-mode: normal;
 }
+
+/* Add this to a global CSS file, e.g., `globals.css` or a dedicated component CSS file */
+.smart-segment::after {
+  content: ' | ';
+
+  /* Use a media query to hide the divider when the line breaks */
+  @media (max-width: <your-breakpoint>) {
+    /* Hide the divider by setting its display to none */
+    display: none;
+  }
+}
+
+.smart-segment:last-child::after {
+  /* No divider for the last segment */
+  content: '';
+}
