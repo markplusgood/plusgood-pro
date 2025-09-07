@@ -23,7 +23,7 @@ import { useState } from "react";
 
 export default function ResumeClientPage() {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme } = useTheme();
   const mounted = useMounted();
 
   return (
@@ -161,10 +161,10 @@ export default function ResumeClientPage() {
                     className="size-8 contact-button"
                     variant="outline"
                     size="icon"
-                    onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                    onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
                   >
                     <span className="normal-blend-mode">
-                      {theme === 'dark' ? <SunIcon className="size-4" /> : <MoonIcon className="size-4" />}
+                      {resolvedTheme === 'dark' ? <SunIcon className="size-4" /> : <MoonIcon className="size-4" />}
                     </span>
                   </Button>
                 )}
@@ -250,10 +250,10 @@ export default function ResumeClientPage() {
             className="size-8 contact-button"
             variant="outline"
             size="icon"
-            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
           >
             <span className="normal-blend-mode">
-              {theme === 'dark' ? <SunIcon className="size-4" /> : <MoonIcon className="size-4" />}
+              {resolvedTheme === 'dark' ? <SunIcon className="size-4" /> : <MoonIcon className="size-4" />}
             </span>
           </Button>
         )}
