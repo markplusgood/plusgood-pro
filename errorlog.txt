@@ -1,0 +1,12 @@
+   Creating an optimized production build ...
+Failed to compile.
+
+./src/app/resume-client-page.tsx
+Module not found: Can't resolve '@/lib/hooks'    
+
+https://nextjs.org/docs/messages/module-not-found
+
+./src/app/layout.tsx
+Module not found: Can't resolve '@/components/providers'
+
+https://nextjs.org/docs/messages/module-not-found
