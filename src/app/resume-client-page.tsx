@@ -7,7 +7,7 @@ import { Drawer, DrawerTrigger, DrawerContent } from "@/components/ui/drawer";
 import { CommandMenu } from "@/components/command-menu";
 import { Section } from "@/components/ui/section";
 import { SmartLineBreak } from "@/components/SmartLineBreakProps";
-import { GlobeIcon, MailIcon, PhoneIcon, FileDown, MenuIcon, MoonIcon, SunIcon, LanguagesIcon } from "lucide-react";
+import { GlobeIcon, MailIcon, PhoneIcon, Download, MenuIcon, MoonIcon, SunIcon, LanguagesIcon } from "lucide-react";
 import { SiTelegram } from '@icons-pack/react-simple-icons';
 import { Button } from "@/components/ui/button";
 import { RESUME_DATA } from "@/data/resume-data";
@@ -150,10 +150,10 @@ export default function ResumeClientPage() {
         <div className="fixed right-0 top-1/2 -translate-y-1/2 block md:hidden">
           <Drawer direction="right" open={isDrawerOpen} onOpenChange={setDrawerOpen}>
             <DrawerTrigger asChild>
-                <Button variant="outline" className="h-20 w-8">
-                  ||
-                </Button>
-              </DrawerTrigger>
+              <Button variant="outline" className="h-20 w-8">
+                ||
+              </Button>
+            </DrawerTrigger>
             <DrawerContent className="top-1/2 -translate-y-1/2">
               <div className="p-4 flex flex-col gap-y-2">
                 {mounted && (
@@ -231,7 +231,7 @@ export default function ResumeClientPage() {
                   >
                     <a href={`/Support automation engineer - Mark Mikhalev - CV.pdf`} target="_blank" download="Mark Mikhalev">
                       <span className="normal-blend-mode">
-                        <FileDown className="size-4" />
+                        <Download className="size-4" />
                       </span>
                     </a>
                   </Button>
@@ -320,13 +320,13 @@ export default function ResumeClientPage() {
           >
             <a href={`/Support automation engineer - Mark Mikhalev - CV.pdf`} target="_blank" download="Mark Mikhalev">
               <span className="normal-blend-mode">
-                <FileDown className="size-4" />
+                <Download className="size-4" />
               </span>
             </a>
           </Button>
         ) : null}
       </div>
-      
+
     </main>
 
   );
