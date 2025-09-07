@@ -7,7 +7,7 @@ import { Drawer, DrawerTrigger, DrawerContent } from "@/components/ui/drawer";
 import { CommandMenu } from "@/components/command-menu";
 import { Section } from "@/components/ui/section";
 import { SmartLineBreak } from "@/components/SmartLineBreakProps";
-import { GlobeIcon, MailIcon, PhoneIcon, Download, MenuIcon } from "lucide-react";
+import { GlobeIcon, MailIcon, PhoneIcon, FileDown, MenuIcon, MoonIcon, SunIcon, LanguagesIcon } from "lucide-react";
 import { SiTelegram } from '@icons-pack/react-simple-icons';
 import { Button } from "@/components/ui/button";
 import { RESUME_DATA } from "@/data/resume-data";
@@ -16,16 +16,20 @@ import { Position } from "@/data/resume-data";
 import { Work } from "@/data/resume-data";
 import { Skills } from "@/data/resume-data";
 import { Education } from "@/data/resume-data";
+import { useMounted } from "@/lib/hooks";
+import { useTheme } from "next-themes";
 import { GoogleTagManager } from '@next/third-parties/google'
 import { useState } from "react";
 
 export default function ResumeClientPage() {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
+  const mounted = useMounted();
 
   return (
     <main className="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-12 md:p-16">
       <div className="flex justify-center">
-        <section className="mx-auto w-full max-w-2xl space-y-8 bg-white print:space-y-4">
+        <section className="mx-auto w-full max-w-2xl space-y-8 bg-background print:space-y-4">
           <div className="flex flex-col items-center justify-center">
             <div className="space-y-1.5 text-center">
               <h1 className="text-2xl font-bold">{RESUME_DATA.name}</h1>
@@ -145,15 +149,34 @@ export default function ResumeClientPage() {
         {/* Drawer trigger button - visible on small screens */}
         <div className="fixed right-0 top-1/2 -translate-y-1/2 block md:hidden">
           <Drawer direction="right" open={isDrawerOpen} onOpenChange={setDrawerOpen}>
-            {!isDrawerOpen && (
-              <DrawerTrigger asChild>
+            <DrawerTrigger asChild>
                 <Button variant="outline" className="h-20 w-8">
                   ||
                 </Button>
               </DrawerTrigger>
-            )}
-            <DrawerContent className="w-16">
+            <DrawerContent className="top-1/2 -translate-y-1/2">
               <div className="p-4 flex flex-col gap-y-2">
+                {mounted && (
+                  <Button
+                    className="size-8 contact-button"
+                    variant="outline"
+                    size="icon"
+                    onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                  >
+                    <span className="normal-blend-mode">
+                      {theme === 'dark' ? <SunIcon className="size-4" /> : <MoonIcon className="size-4" />}
+                    </span>
+                  </Button>
+                )}
+                <Button
+                  className="size-8 contact-button"
+                  variant="outline"
+                  size="icon"
+                >
+                  <span className="normal-blend-mode">
+                    <LanguagesIcon className="size-4" />
+                  </span>
+                </Button>
                 {RESUME_DATA.contact.email ? (
                   <Button
                     className="size-8 contact-button"
@@ -208,7 +231,7 @@ export default function ResumeClientPage() {
                   >
                     <a href={`/Support automation engineer - Mark Mikhalev - CV.pdf`} target="_blank" download="Mark Mikhalev">
                       <span className="normal-blend-mode">
-                        <Download className="size-4" />
+                        <FileDown className="size-4" />
                       </span>
                     </a>
                   </Button>
@@ -222,6 +245,27 @@ export default function ResumeClientPage() {
 
       {/* Responsive button column - hidden on small screens */}
       <div className="contact-buttons-container">
+        {mounted && (
+          <Button
+            className="size-8 contact-button"
+            variant="outline"
+            size="icon"
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+          >
+            <span className="normal-blend-mode">
+              {theme === 'dark' ? <SunIcon className="size-4" /> : <MoonIcon className="size-4" />}
+            </span>
+          </Button>
+        )}
+        <Button
+          className="size-8 contact-button"
+          variant="outline"
+          size="icon"
+        >
+          <span className="normal-blend-mode">
+            <LanguagesIcon className="size-4" />
+          </span>
+        </Button>
         {RESUME_DATA.contact.email ? (
           <Button
             className="size-8 contact-button"
@@ -276,12 +320,13 @@ export default function ResumeClientPage() {
           >
             <a href={`/Support automation engineer - Mark Mikhalev - CV.pdf`} target="_blank" download="Mark Mikhalev">
               <span className="normal-blend-mode">
-                <Download className="size-4" />
+                <FileDown className="size-4" />
               </span>
             </a>
           </Button>
         ) : null}
       </div>
+      
     </main>
 
   );

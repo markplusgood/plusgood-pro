@@ -1,41 +1,49 @@
 "use client";
 
 import { Button } from "./ui/button";
-import { PrinterIcon } from "lucide-react";
+import { MoonIcon, SunIcon, LanguagesIcon } from "lucide-react";
+import { useMounted } from "@/lib/hooks";
+import { useTheme } from "next-themes";
 import {
-  Drawer,
-  DrawerTrigger,
-  DrawerContent,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerClose,
-} from "./ui/drawer";
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogFooter,
+  DialogClose,
+} from "@/components/ui/dialog";
 
 export const PrintDrawer = () => {
+  const { theme, setTheme } = useTheme();
+  const mounted = useMounted();
   return (
-    <Drawer>
-      <DrawerTrigger asChild>
+    <Dialog>
+      <DialogTrigger asChild>
         <Button className="fixed bottom-4 right-4 size-16 rounded-full shadow-2xl print:hidden">
-          <PrinterIcon />
+          
         </Button>
-      </DrawerTrigger>
-      <DrawerContent>
+      </DialogTrigger>
+      <DialogContent className="fixed right-4 top-1/2 -translate-y-1/2 z-50 w-auto rounded-lg border bg-background p-6 shadow-lg">
         <div className="mx-auto w-full max-w-sm">
-          <DrawerHeader>
-            <DrawerTitle>Move Goal</DrawerTitle>
-            <DrawerDescription>Set your daily activity goal.</DrawerDescription>
-          </DrawerHeader>
-          <div className="p-4 pb-0"></div>
-          <DrawerFooter>
-            <Button onClick={() => window.print()}>Print</Button>
-            <DrawerClose asChild>
+          
+          <DialogFooter>
+            {mounted && (
+              <Button
+                variant="outline"
+                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              >
+                {theme === 'dark' ? <SunIcon className="size-4" /> : <MoonIcon className="size-4" />}
+              </Button>
+            )}
+            <Button variant="outline">
+              <LanguagesIcon className="size-4" />
+            </Button>
+            
+            <DialogClose asChild>
               <Button variant="outline">Cancel</Button>
-            </DrawerClose>
-          </DrawerFooter>
+            </DialogClose>
+          </DialogFooter>
         </div>
-      </DrawerContent>
-    </Drawer>
+      </DialogContent>
+    </Dialog>
   );
 };

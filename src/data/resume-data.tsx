@@ -1,5 +1,5 @@
 import { GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons";
-import { Download } from "lucide-react";
+import { FileDown } from "lucide-react";
 
 export type Position = { // Exporting Position type
   title: string;
@@ -62,7 +62,7 @@ export const RESUME_DATA = {
       {
         name: "Download",
         url: "/Support automation engineer - Mark Mikhalev - CV.pdf",
-        icon: Download,
+        icon: FileDown,
       },
     ],
   },
