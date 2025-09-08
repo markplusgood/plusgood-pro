@@ -70,7 +70,11 @@ export default function ResumeClientPage() {
             <h2 className="text-xl font-bold text-center">About</h2>
             <div className="text-pretty font-mono text-sm text-muted-foreground print:text-[12px]">
               {RESUME_DATA.summary.map((paragraph, index) => (
-                <p key={index} className="mb-4">{paragraph}</p>
+                <p
+                  key={index}
+                  className="mb-4"
+                  dangerouslySetInnerHTML={{ __html: paragraph }}
+                />
               ))}
             </div>
           </Section>
@@ -226,6 +230,7 @@ export default function ResumeClientPage() {
                   </Button>
                 ))}
 
+                {/*}
                 {RESUME_DATA.contact.download ? (
                   <Button
                     className="size-8 contact-button"
@@ -239,7 +244,8 @@ export default function ResumeClientPage() {
                       </span>
                     </a>
                   </Button>
-                ) : null}
+                ) : null} */}
+
               </div>
             </DrawerContent>
           </Drawer>
@@ -315,6 +321,7 @@ export default function ResumeClientPage() {
           </Button>
         ))}
 
+        {/*
         {RESUME_DATA.contact.download ? (
           <Button
             className="size-8 contact-button"
@@ -329,6 +336,8 @@ export default function ResumeClientPage() {
             </a>
           </Button>
         ) : null}
+        */}
+
       </div>
       <ThemeAwareHeart />
 

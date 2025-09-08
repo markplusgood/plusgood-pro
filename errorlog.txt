@@ -1,0 +1,24 @@
+Build Error
+Failed to compile
+
+Next.js (14.2.32) is outdated (learn more)
+./src/data/resume-data.tsx
+Error: 
+  × Expected ',', got 'string literal ( target=, " target=")'
+    ╭─[D:\code\1PLUSGOOD\plusgood.pro\src\data\resume-data.tsx:36:1]
+ 36 │       "I create work environments where agentic AI automations handle tedious tasks, and teams focus on the human side of work they actually enjoy.",
+ 37 │       "As a generalist with a passion for tech, I acquired a diverse experience and skill set that enables me to benefit both digital and traditional projects — working with code and with people, fostering customer relations, managing hybrid teams, or building data-driven AI-enabled systems that lighten the load and boost teams' efficiency and well-being.",
+ 38 │       "Managing people and processes with care, creating high-trust work environments that facilitate growth, and striving to deliver exceptional service — these have always been the focus of my work. These are my two cents on manifesting the culture of abundance.",
+ 39 │       "You can find an outline of my tech experience and relevant skills below, or <a href="" target="_blank" class="underline">click here</a> to download my CV. And if any of it resonates with your wants or needs, hit one of those contact buttons on the right and drop me a line. I’ll be happy to hear from you and talk about how my experience and skill set can help your project.",
+    ·                                                                                             ──────────
+ 40 │     ],
+ 41 │   avatarUrl: "https://raw.githubusercontent.com/markplusgood/plusgood.pro/main/src/images/avatar.jpeg",
+ 42 │   personalWebsiteUrl: "plusgood.pro",
+    ╰────
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/data/resume-data.tsx
+./src/app/resume-client-page.tsx
