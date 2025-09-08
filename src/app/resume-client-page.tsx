@@ -19,6 +19,7 @@ import { Education } from "@/data/resume-data";
 import { useMounted } from "@/lib/hooks";
 import { useTheme } from "next-themes";
 import { GoogleTagManager } from '@next/third-parties/google'
+import { ThemeAwareHeart } from "@/components/ui/theme-aware-heart";
 import { useState } from "react";
 
 export default function ResumeClientPage() {
@@ -329,6 +330,7 @@ export default function ResumeClientPage() {
           </Button>
         ) : null}
       </div>
+      <ThemeAwareHeart />
 
     </main>
 
