@@ -66,7 +66,7 @@ export default function ResumeClientPage() {
 
           </div>
           <Section>
-            <h2 className="text-xl font-bold">About</h2>
+            <h2 className="text-xl font-bold text-center">About</h2>
             <div className="text-pretty font-mono text-sm text-muted-foreground print:text-[12px]">
               {RESUME_DATA.summary.map((paragraph, index) => (
                 <p key={index} className="mb-4">{paragraph}</p>
@@ -75,26 +75,16 @@ export default function ResumeClientPage() {
           </Section>
 
           <Section>
-            <h2 className="text-xl font-bold">Work Experience</h2>
+            <h2 className="text-xl font-bold text-center">Work Experience</h2>
             {RESUME_DATA.work.map((work: Work) => (
-              <Card key={work.company}>
+              <Card key={work.company} className="mt-4">
                 <CardHeader>
                   <div className="flex items-center justify-between gap-x-2 text-base">
                     <h3 className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none">
                       <a className="hover:underline" href={work.link} target="_blank">
                         {work.company}
                       </a>
-                      <span className="inline-flex gap-x-1">
-                        {work.badges.map((badge) => (
-                          <Badge
-                            variant="secondary"
-                            className="align-middle text-xs print:text-[8px] print:leading-tight print:px-1 print:py-0.5"
-                            key={badge}
-                          >
-                            {badge}
-                          </Badge>
-                        ))}
-                      </span>
+
                     </h3>
                   </div>
                 </CardHeader>
@@ -145,8 +135,8 @@ export default function ResumeClientPage() {
             */}
 
           <Section>
-            <h2 className="text-xl font-bold">Skills</h2>
-            <div className="flex flex-wrap gap-1">
+            <h2 className="text-xl font-bold text-center">Skills</h2>
+            <div className="flex flex-wrap justify-center gap-1 mt-4">
               {RESUME_DATA.skills.map((skill: Skills) => {
                 return (
                   <Badge className="print:text-[10px] skill-badge" key={skill}>
