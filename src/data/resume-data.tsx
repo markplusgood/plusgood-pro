@@ -5,7 +5,7 @@ export type Position = { // Exporting Position type
   title: string;
   start: string;
   end?: string;
-  description: string;
+  description: string | string[];
 };
 
 export type Work = {
@@ -61,13 +61,49 @@ export const RESUME_DATA = {
       */
       {
         name: "Download",
-        url: "/Support automation engineer - Mark Mikhalev - CV.pdf",
+        url: "/Mark Mikhalev - CV.pdf",
         icon: Download,
       },
     ],
   },
 
   work: [
+    {
+      company: "NDA",
+      link: "",
+      badges: ["Remote"],
+      positions: [
+        {
+          title: "AI Automation and Quality Engineer",
+          start: "May 2025",
+          end: "Aug 2025",
+          description: [
+            "Built and optimized AI-driven automated workflows and QA processes for the internal services team, boosting delivery speed and reducing workload by 25%.",
+            "Developed a data-driven AI-enabled quality assurance framework that provided clear metrics for optimizing performance and future growth.",
+            "Created comprehensive documentation and user manuals to help with long-term maintenance of these solutions.",
+          ],
+        },
+
+      ],
+    },
+
+    {
+      company: "FunnelFox",
+      link: "https://instaon.io/en",
+      badges: ["Remote"],
+      positions: [
+        {
+          title: "Customer success manager",
+          start: "2019",
+          end: "2019",
+          description: [
+            "Guided hundreds of small businesses and agencies in integrating a novel AI solution into marketing strategies before the AI hype.",
+          ],
+        },
+
+      ],
+    },
+
     {
       company: "TripleTen",
       link: "https://tripleten.com",
@@ -77,22 +113,25 @@ export const RESUME_DATA = {
           title: "Customer support team lead",
           start: "2023",
           end: "2023",
-          description:
+          description: [
             "Led a technical and educational support team through a software transition, increasing team efficiency and well-being by training, building smooth processes, and implementing chatbots with self-service features.",
+          ],
         },
         {
           title: "Senior customer support agent",
           start: "2021",
           end: "2023",
-          description:
+          description: [
             "Fostered crew efficiency and user satisfaction by delivering exceptional technical and educational support, maintaining team's workflows and software integrations, and tracking team performance. Ensured team's adherence to company policies and standards and acted as a technical authority, providing expertise to colleagues and users.",
+          ],
         },
         {
           title: "Customer support agent",
           start: "2020",
           end: "2021",
-          description:
+          description: [
             "Resolved over 3,000 cases to the highest standards, ensuring 100% compliance with company standards and providing valuable technical, educational, and emotional support to hundreds of students starting their tech careers.",
+          ],
         },
       ],
     },
@@ -106,8 +145,9 @@ export const RESUME_DATA = {
           title: "Customer success manager",
           start: "2019",
           end: "2019",
-          description:
+          description: [
             "Guided hundreds of small businesses and agencies in integrating a novel AI solution into marketing strategies before the AI hype.",
+          ],
         },
 
       ],
@@ -122,15 +162,17 @@ export const RESUME_DATA = {
           title: "Digital marketing manager",
           start: "2017",
           end: "2019",
-          description:
+          description: [
             "Managed PPC campaigns on the Google and Yandex Ads networks, boosting sales and reducing clients' marketing spend by 30%.",
+          ],
         },
         {
           title: "Translator",
           start: "2017",
           end: "2019",
-          description:
+          description: [
             "Translated and localized diverse entertainment and business material in English, Russian, and Spanish, ensuring cultural accuracy and relevance.",
+          ],
         },
       ],
     },
@@ -144,22 +186,25 @@ export const RESUME_DATA = {
           title: "Senior editor",
           start: "2015",
           end: "2016",
-          description:
+          description: [
             "Supervised a distributed team of 150 content editors, copywriters, and designers in delivering valuable reader-friendly content that met usability and SEO standards, ensuring project long-term profitability.",
+          ],
         },
         {
           title: "Web content editor",
           start: "2013",
           end: "2015",
-          description:
+          description: [
             "Managed a team of a couple dozen copywriters and graphic designers, ensuring content alignment with SEO and usability standards.",
+          ],
         },
         /*{
           title: "Copywriter",
           start: "2012",
           end: "2013",
-          description:
+          description: [
             "Produced over 1,000 educational articles on various topics, ensuring style consistency, readability, and SEO compliance for maximum content performance and reader engagement.",
+          ],
         }, */
       ],
     },

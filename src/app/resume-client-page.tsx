@@ -27,7 +27,7 @@ export default function ResumeClientPage() {
   const mounted = useMounted();
 
   return (
-    <main className="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-12 md:p-16">
+    <main className="container relative mx-auto scroll-my-12 overflow-auto px-16 py-8 print:p-12">
       <div className="flex justify-center">
         <section className="mx-auto w-full max-w-2xl space-y-8 bg-background print:space-y-4">
           <div className="flex flex-col items-center justify-center">
@@ -102,7 +102,15 @@ export default function ResumeClientPage() {
                     <div className="text-xs tabular-nums text-muted-foreground">
                       {position.start} - {position.end ?? "Present"}
                     </div>
-                    <p className="mt-2 text-sm">{position.description}</p>
+                    {typeof position.description === 'string' ? (
+                      <p className="mt-2 text-sm">{position.description}</p>
+                    ) : (
+                      <ul className="mt-2 text-sm list-disc list-inside colored-bullet">
+                        {position.description.map((item, index) => (
+                          <li key={index}>{item}</li>
+                        ))}
+                      </ul>
+                    )}
                   </CardContent>
                 ))}
               </Card>

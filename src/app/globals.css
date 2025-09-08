@@ -249,3 +249,9 @@
   /* No divider for the last segment */
   content: '';
 }
+
+@layer components {
+  .colored-bullet::marker {
+    color: hsl(var(--foreground));
+  }
+}

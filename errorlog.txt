@@ -1,12 +1,20 @@
-   Creating an optimized production build ...
-Failed to compile.
+Build Error
+Failed to compile
 
-./src/app/resume-client-page.tsx
-Module not found: Can't resolve '@/lib/hooks'    
+Next.js (14.2.32) is outdated (learn more)
+./src/data/resume-data.tsx
+Error: 
+  × Unexpected token `,`. Expected identifier
+    ╭─[D:\code\1PLUSGOOD\plusgood.pro\src\data\resume-data.tsx:79:1]
+ 79 │           end: "2025",
+ 80 │           description:
+ 81 │             "- Built and optimized AI-driven automated workflows and QA processes for the internal services team, boosting delivery speed and reducing workload by 25%.",
+ 82 │           "- Developed a data-driven AI-enabled quality assurance framework that provided clear metrics for optimizing performance and future growth.",
+    ·                                                                                                                                                       ─
+ 83 │           "- Created comprehensive documentation and user manuals to help with long-term maintenance of these solutions.",
+ 84 │         },
+ 84 │ 
+    ╰────
 
-https://nextjs.org/docs/messages/module-not-found
-
-./src/app/layout.tsx
-Module not found: Can't resolve '@/components/providers'
-
-https://nextjs.org/docs/messages/module-not-found
+Caused by:
+    Syntax Error
