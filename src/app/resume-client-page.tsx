@@ -67,9 +67,11 @@ export default function ResumeClientPage() {
           </div>
           <Section>
             <h2 className="text-xl font-bold">About</h2>
-            <p className="text-pretty font-mono text-sm text-muted-foreground print:text-[12px]">
-              {RESUME_DATA.summary}
-            </p>
+            <div className="text-pretty font-mono text-sm text-muted-foreground print:text-[12px]">
+              {RESUME_DATA.summary.map((paragraph, index) => (
+                <p key={index} className="mb-4">{paragraph}</p>
+              ))}
+            </div>
           </Section>
 
           <Section>

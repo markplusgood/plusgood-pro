@@ -32,7 +32,12 @@ export const RESUME_DATA = {
   about:
     "AI Automation Engineer | Customer Advocate | Team Lead",
   summary:
-    "Passionate Customer Advocate and Automation Engineer with extensive work experience across diverse industries and cultures. I am dedicated to creating exceptional customer experiences and leveraging technology to make this world a better place.",
+    [
+      "I create work environments where agentic AI automations handle tedious tasks, and teams focus on the human side of work they actually enjoy.",
+      "As a generalist with a passion for tech, I acquired a diverse experience and skill set that enables me to benefit both digital and traditional projects — working with code and with people, fostering customer relations, managing hybrid teams, or building data-driven AI-enabled systems that lighten the load and boost teams' efficiency and well-being.",
+      "Managing people and processes with care, creating high-trust work environments that facilitate growth, and striving to deliver exceptional service — these have always been the focus of my work. These are my two cents on manifesting the culture of abundance.",
+      "You can find an outline of my tech experience and relevant skills below, or click here to download my CV. And if any of it resonates with your wants or needs, hit one of those contact buttons on the right and drop me a line. I’ll be happy to hear from you and talk about how my experience and skill set can help your project.",
+    ],
   avatarUrl: "https://raw.githubusercontent.com/markplusgood/plusgood.pro/main/src/images/avatar.jpeg",
   personalWebsiteUrl: "plusgood.pro",
   contact: {

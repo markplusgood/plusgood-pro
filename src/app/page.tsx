@@ -4,7 +4,7 @@ import ResumeClientPage from "./resume-client-page";
 
 export const metadata: Metadata = {
   title: `${RESUME_DATA.name}`,
-  description: RESUME_DATA.summary,
+  description: RESUME_DATA.summary.join(" "),
 };
 
 export default function Page() {
