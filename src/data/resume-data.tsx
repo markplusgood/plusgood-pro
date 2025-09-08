@@ -81,7 +81,7 @@ export const RESUME_DATA = {
         {
           title: "AI Automation and Quality Engineer",
           start: "May 2025",
-          end: "Aug 2025",
+          end: "Sept 2025",
           description: [
             "Built and optimized AI-driven automated workflows and QA processes for the internal services team, boosting delivery speed and reducing workload by 25%.",
             "Developed a data-driven AI-enabled quality assurance framework that provided clear metrics for optimizing performance and future growth.",
@@ -94,15 +94,20 @@ export const RESUME_DATA = {
 
     {
       company: "FunnelFox",
-      link: "https://instaon.io/en",
+      link: "https://funnelfox.com/",
       badges: ["Remote"],
       positions: [
         {
-          title: "Customer success manager",
-          start: "2019",
-          end: "2019",
+          title: "Tech Support Engineer at FunnelFox",
+          start: "Dec 2024",
+          end: "May 2025",
           description: [
-            "Guided hundreds of small businesses and agencies in integrating a novel AI solution into marketing strategies before the AI hype.",
+            "Provided expert-level technical support for businesses leveraging the FunnelFox web2app platform.",
+            "Conducted in-depth technical investigations to resolve and escalate complex customer issues.",
+            "Designed and implemented workflow automations that enhanced team performance.",
+            "Reduced lost case instances to zero, strengthening client relationships.",
+            "-Co-developed support team workflows and established key performance indicators (KPIs) to track success.",
+            "Maintained and improved product documentation.",
           ],
         },
 
@@ -116,26 +121,34 @@ export const RESUME_DATA = {
       positions: [
         {
           title: "Customer support team lead",
-          start: "2023",
-          end: "2023",
+          start: "Jul 2023",
+          end: "Oct 2023",
           description: [
-            "Led a technical and educational support team through a software transition, increasing team efficiency and well-being by training, building smooth processes, and implementing chatbots with self-service features.",
+            "Led a global team of 10 technical and educational support agents, fostering a collaborative and high-performance culture.",
+            "Ensured the hiring processes filled the team with desired talent.",
+            "Managed the selection and migration to a new software stack, streamlined cross-team data integration, and unlocked new opportunities for leveraging state-of-the-art tech for team efficiency and customer satisfaction.",
           ],
         },
         {
           title: "Senior customer support agent",
-          start: "2021",
-          end: "2023",
+          start: "Oct 2021",
+          end: "Jul 2023",
           description: [
-            "Fostered crew efficiency and user satisfaction by delivering exceptional technical and educational support, maintaining team's workflows and software integrations, and tracking team performance. Ensured team's adherence to company policies and standards and acted as a technical authority, providing expertise to colleagues and users.",
+            "Fostered team efficiency and user satisfaction by delivering exceptional technical and educational support and serving as a role model for colleagues, keeping their endorsement at 99%.",
+            "Acted as a technical authority, providing expertise to colleagues and users, ensuring the team's adherence to company policies and standards.",
+            "Provided continuous quality assurance for maintaining the service up to the company’s standards and developing the team’s talent.",
+            "Built and maintained a comprehensive support analytics system to track team performance, workload, and collect valuable UX insights for product teams.",
+            "Designed, built, and maintained robust processes and automations to ensure exceptional support, seamless inter-team collaboration, and team development.",
+            "Served as the connecting point for cross-team collaborations and knowledge sharing.",
           ],
         },
         {
           title: "Customer support agent",
-          start: "2020",
-          end: "2021",
+          start: "Oct 2020",
+          end: "Oct 2021",
           description: [
-            "Resolved over 3,000 cases to the highest standards, ensuring 100% compliance with company standards and providing valuable technical, educational, and emotional support to hundreds of students starting their tech careers.",
+            "Resolved 3,000+ customer cases with 100% compliance to company standards, maintaining CSAT at 99%.",
+            "Provided technical, educational, and emotional support to hundreds of students from diverse backgrounds launching their tech careers globally.",
           ],
         },
       ],
@@ -148,10 +161,13 @@ export const RESUME_DATA = {
       positions: [
         {
           title: "Customer success manager",
-          start: "2019",
-          end: "2019",
+          start: "Feb 2019",
+          end: "Oct 2019",
           description: [
-            "Guided hundreds of small businesses and agencies in integrating a novel AI solution into marketing strategies before the AI hype.",
+            "Onboarded and guided 100+ agencies and SMBs in integrating a novel AI solution into their digital marketing strategies.",
+            "Conducted business verification and fraud detection activities and ensured customers' compliance with ad network policies, keeping the company’s Google Ads Partner account free from low-quality traffic and strikes.",
+            "Acted as a trusted advisor, resolving technical and strategic challenges in implementing proprietary LLM tools and campaign management.",
+            "Served as the voice of the customer, collecting and channeling CX data to inform product development.",
           ],
         },
 
@@ -166,17 +182,18 @@ export const RESUME_DATA = {
         {
           title: "Digital marketing manager",
           start: "2017",
-          end: "2019",
+          end: "Oct 2019",
           description: [
-            "Managed PPC campaigns on the Google and Yandex Ads networks, boosting sales and reducing clients' marketing spend by 30%.",
+            "Created and managed dozens of Google Ads and Yandex Ads campaigns, increasing client sales by an average of 45% while reducing marketing spend by up to 30% through improved copywriting, targeting, and bid optimization.",
+            "Provided digital marketing consulting to SMBs, conducting comprehensive audits and implementing conversion optimization strategies that improved campaign ROI by an average of 30%",
           ],
         },
         {
           title: "Translator",
           start: "2017",
-          end: "2019",
+          end: "Oct 2019",
           description: [
-            "Translated and localized diverse entertainment and business material in English, Russian, and Spanish, ensuring cultural accuracy and relevance.",
+            "Translated 500+ pages across English, Russian, and Spanish for international clients, handling diverse content from medical documentation and business plans to entertainment media like BBC's Top Gear, while maintaining cultural accuracy and brand voice consistency.",
           ],
         },
       ],
@@ -188,19 +205,13 @@ export const RESUME_DATA = {
       badges: ["Remote"],
       positions: [
         {
-          title: "Senior editor",
-          start: "2015",
-          end: "2016",
-          description: [
-            "Supervised a distributed team of 150 content editors, copywriters, and designers in delivering valuable reader-friendly content that met usability and SEO standards, ensuring project long-term profitability.",
-          ],
-        },
-        {
           title: "Web content editor",
-          start: "2013",
-          end: "2015",
+          start: "Jun 2013",
+          end: "Apr 2016",
           description: [
-            "Managed a team of a couple dozen copywriters and graphic designers, ensuring content alignment with SEO and usability standards.",
+            "Led a team of 20+ copywriters and graphic designers to deliver high-quality content that provided users with learning materials and veritable answers to their most asked questions, and drove company revenue.",
+            "Owned full content lifecycle: from SEO-driven content planning through final editing and publication of more than 4000 articles.",
+            "Ensured all deliverables met usability standards and SEO requirements.",
           ],
         },
         /*{
@@ -243,7 +254,7 @@ export const RESUME_DATA = {
     "Proactive Problem-Resolution",
 
   ] as Skills[],
-
+  /*
   education: [
     {
       school: "Russian Law Academy of the Ministry of Justice",
@@ -252,8 +263,7 @@ export const RESUME_DATA = {
       end: "",
     },
   ] as Education[],
-
-  /*  
+  
   projects: [
     {
       title: "Parabol",
