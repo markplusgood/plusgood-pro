@@ -193,108 +193,110 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
               <DrawerTitle className="sr-only">Contact Links</DrawerTitle>
               <div className="p-4 flex flex-col gap-y-2">
                 {mounted && (
-                  <Button
-                    className="size-8 contact-button"
-                    variant="outline"
-                    size="icon"
-                    onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
-                  >
-                    <span className="normal-blend-mode">
-                      {resolvedTheme === 'dark' ? <SunIcon className="size-4" /> : <MoonIcon className="size-4" />}
-                    </span>
-                  </Button>
-                )}
-                <Button
-                  className="size-8 contact-button"
-                  variant="outline"
-                  size="icon"
-                  onClick={() => switchLocale(locale === 'en' ? 'ru' : 'en')}
-                >
-                  <span className="normal-blend-mode">
-                    <LanguagesIcon className="size-4" />
-                  </span>
-                </Button>
-                {resumeData.contact.email ? (
-                  <Button
-                    className="size-8 contact-button"
-                    variant="outline"
-                    size="icon"
-                    asChild
-                  >
-                    <a href={`mailto:${resumeData.contact.email}`} target="_blank">
+                  <>
+                    <Button
+                      className="size-8 contact-button"
+                      variant="outline"
+                      size="icon"
+                      onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
+                    >
                       <span className="normal-blend-mode">
-                        <MailIcon className="size-4" />
+                        {resolvedTheme === 'dark' ? <SunIcon className="size-4" /> : <MoonIcon className="size-4" />}
                       </span>
-                    </a>
-                  </Button>
-                ) : null}
-                <Button
-                  className="size-8 contact-button"
-                  variant="outline"
-                  size="icon"
-                  asChild
-                >
-                  <a href="https://calendly.com/markplusgood/15min-chat" target="_blank" rel="noopener noreferrer">
-                    <span className="normal-blend-mode">
-                      <CalendarDaysIcon className="size-4" />
-                    </span>
-                  </a>
-                </Button>
-                {resumeData.contact.tel ? (
-                  <Button
-                    className="size-8 contact-button"
-                    variant="outline"
-                    size="icon"
-                    asChild
-                  >
-                    <a href={`https://t.me/markplusgood`} target="_blank">
+                    </Button>
+                    <Button
+                      className="size-8 contact-button"
+                      variant="outline"
+                      size="icon"
+                      onClick={() => switchLocale(locale === 'en' ? 'ru' : 'en')}
+                    >
                       <span className="normal-blend-mode">
-                        <SiTelegram className="size-4" />
+                        <LanguagesIcon className="size-4" />
                       </span>
-                    </a>
-                  </Button>
-                ) : null}
-                {resumeData.contact.social?.find(s => s.icon === 'github') && (
-                  <Button
-                    className="size-8 contact-button"
-                    variant="outline"
-                    size="icon"
-                    asChild
-                  >
-                    <a href={resumeData.contact.social.find(s => s.icon === 'github')!.url} target="_blank" rel="noopener noreferrer">
-                      <span className="normal-blend-mode">
-                        <GitHubIcon className="size-4" />
-                      </span>
-                    </a>
-                  </Button>
-                )}
-                {resumeData.contact.social?.find(s => s.icon === 'linkedin') && (
-                  <Button
-                    className="size-8 contact-button"
-                    variant="outline"
-                    size="icon"
-                    asChild
-                  >
-                    <a href={resumeData.contact.social.find(s => s.icon === 'linkedin')!.url} target="_blank" rel="noopener noreferrer">
-                      <span className="normal-blend-mode">
-                        <LinkedInIcon className="size-4" />
-                      </span>
-                    </a>
-                  </Button>
-                )}
-                {resumeData.contact.social?.find(s => s.icon === 'x') && (
-                  <Button
-                    className="size-8 contact-button"
-                    variant="outline"
-                    size="icon"
-                    asChild
-                  >
-                    <a href={resumeData.contact.social.find(s => s.icon === 'x')!.url} target="_blank" rel="noopener noreferrer">
-                      <span className="normal-blend-mode">
-                        <SiX className="size-4" />
-                      </span>
-                    </a>
-                  </Button>
+                    </Button>
+                    {resumeData.contact.email ? (
+                      <Button
+                        className="size-8 contact-button"
+                        variant="outline"
+                        size="icon"
+                        asChild
+                      >
+                        <a href={`mailto:${resumeData.contact.email}`} target="_blank">
+                          <span className="normal-blend-mode">
+                            <MailIcon className="size-4" />
+                          </span>
+                        </a>
+                      </Button>
+                    ) : null}
+                    <Button
+                      className="size-8 contact-button"
+                      variant="outline"
+                      size="icon"
+                      asChild
+                    >
+                      <a href="https://calendly.com/markplusgood/15min-chat" target="_blank" rel="noopener noreferrer">
+                        <span className="normal-blend-mode">
+                          <CalendarDaysIcon className="size-4" />
+                        </span>
+                      </a>
+                    </Button>
+                    {resumeData.contact.tel ? (
+                      <Button
+                        className="size-8 contact-button"
+                        variant="outline"
+                        size="icon"
+                        asChild
+                      >
+                        <a href={`https://t.me/markplusgood`} target="_blank">
+                          <span className="normal-blend-mode">
+                            <SiTelegram className="size-4" />
+                          </span>
+                        </a>
+                      </Button>
+                    ) : null}
+                    {resumeData.contact.social?.find(s => s.icon === 'github') && (
+                      <Button
+                        className="size-8 contact-button"
+                        variant="outline"
+                        size="icon"
+                        asChild
+                      >
+                        <a href={resumeData.contact.social.find(s => s.icon === 'github')!.url} target="_blank" rel="noopener noreferrer">
+                          <span className="normal-blend-mode">
+                            <GitHubIcon className="size-4" />
+                          </span>
+                        </a>
+                      </Button>
+                    )}
+                    {resumeData.contact.social?.find(s => s.icon === 'linkedin') && (
+                      <Button
+                        className="size-8 contact-button"
+                        variant="outline"
+                        size="icon"
+                        asChild
+                      >
+                        <a href={resumeData.contact.social.find(s => s.icon === 'linkedin')!.url} target="_blank" rel="noopener noreferrer">
+                          <span className="normal-blend-mode">
+                            <LinkedInIcon className="size-4" />
+                          </span>
+                        </a>
+                      </Button>
+                    )}
+                    {resumeData.contact.social?.find(s => s.icon === 'x') && (
+                      <Button
+                        className="size-8 contact-button"
+                        variant="outline"
+                        size="icon"
+                        asChild
+                      >
+                        <a href={resumeData.contact.social.find(s => s.icon === 'x')!.url} target="_blank" rel="noopener noreferrer">
+                          <span className="normal-blend-mode">
+                            <SiX className="size-4" />
+                          </span>
+                        </a>
+                      </Button>
+                    )}
+                  </>
                 )}
 
               </div>
@@ -307,109 +309,110 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
       {/* Responsive button column - hidden on small screens */}
       < div className="contact-buttons-container" >
         {mounted && (
-          <Button
-            className="size-8 contact-button"
-            variant="outline"
-            size="icon"
-            onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
-          >
-            <span className="normal-blend-mode">
-              {resolvedTheme === 'dark' ? <SunIcon className="size-4" /> : <MoonIcon className="size-4" />}
-            </span>
-          </Button>
-        )
-        }
-        <Button
-          className="size-8 contact-button"
-          variant="outline"
-          size="icon"
-          onClick={() => switchLocale(locale === 'en' ? 'ru' : 'en')}
-        >
-          <span className="normal-blend-mode">
-            <LanguagesIcon className="size-4" />
-          </span>
-        </Button>
-        {resumeData.contact.email ? (
-          <Button
-            className="size-8 contact-button"
-            variant="outline"
-            size="icon"
-            asChild
-          >
-            <a href={`mailto:${resumeData.contact.email}`} target="_blank">
+          <>
+            <Button
+              className="size-8 contact-button"
+              variant="outline"
+              size="icon"
+              onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
+            >
               <span className="normal-blend-mode">
-                <MailIcon className="size-4" />
+                {resolvedTheme === 'dark' ? <SunIcon className="size-4" /> : <MoonIcon className="size-4" />}
               </span>
-            </a>
-          </Button>
-        ) : null}
-        <Button
-          className="size-8 contact-button"
-          variant="outline"
-          size="icon"
-          asChild
-        >
-          <a href="https://calendly.com/markplusgood/15min-chat" target="_blank" rel="noopener noreferrer">
-            <span className="normal-blend-mode">
-              <CalendarDaysIcon className="size-4" />
-            </span>
-          </a>
-        </Button>
-        {resumeData.contact.tel ? (
-          <Button
-            className="size-8 contact-button"
-            variant="outline"
-            size="icon"
-            asChild
-          >
-            <a href={`https://t.me/markplusgood`} target="_blank">
+            </Button>
+            <Button
+              className="size-8 contact-button"
+              variant="outline"
+              size="icon"
+              onClick={() => switchLocale(locale === 'en' ? 'ru' : 'en')}
+            >
               <span className="normal-blend-mode">
-                <SiTelegram className="size-4" />
+                <LanguagesIcon className="size-4" />
               </span>
-            </a>
-          </Button>
-        ) : null}
-        {resumeData.contact.social?.find(s => s.icon === 'github') && (
-          <Button
-            className="size-8 contact-button"
-            variant="outline"
-            size="icon"
-            asChild
-          >
-            <a href={resumeData.contact.social.find(s => s.icon === 'github')!.url} target="_blank" rel="noopener noreferrer">
-              <span className="normal-blend-mode">
-                <GitHubIcon className="size-4" />
-              </span>
-            </a>
-          </Button>
-        )}
-        {resumeData.contact.social?.find(s => s.icon === 'linkedin') && (
-          <Button
-            className="size-8 contact-button"
-            variant="outline"
-            size="icon"
-            asChild
-          >
-            <a href={resumeData.contact.social.find(s => s.icon === 'linkedin')!.url} target="_blank" rel="noopener noreferrer">
-              <span className="normal-blend-mode">
-                <LinkedInIcon className="size-4" />
-              </span>
-            </a>
-          </Button>
-        )}
-        {resumeData.contact.social?.find(s => s.icon === 'x') && (
-          <Button
-            className="size-8 contact-button"
-            variant="outline"
-            size="icon"
-            asChild
-          >
-            <a href={resumeData.contact.social.find(s => s.icon === 'x')!.url} target="_blank" rel="noopener noreferrer">
-              <span className="normal-blend-mode">
-                <SiX className="size-4" />
-              </span>
-            </a>
-          </Button>
+            </Button>
+            {resumeData.contact.email ? (
+              <Button
+                className="size-8 contact-button"
+                variant="outline"
+                size="icon"
+                asChild
+              >
+                <a href={`mailto:${resumeData.contact.email}`} target="_blank">
+                  <span className="normal-blend-mode">
+                    <MailIcon className="size-4" />
+                  </span>
+                </a>
+              </Button>
+            ) : null}
+            <Button
+              className="size-8 contact-button"
+              variant="outline"
+              size="icon"
+              asChild
+            >
+              <a href="https://calendly.com/markplusgood/15min-chat" target="_blank" rel="noopener noreferrer">
+                <span className="normal-blend-mode">
+                  <CalendarDaysIcon className="size-4" />
+                </span>
+              </a>
+            </Button>
+            {resumeData.contact.tel ? (
+              <Button
+                className="size-8 contact-button"
+                variant="outline"
+                size="icon"
+                asChild
+              >
+                <a href={`https://t.me/markplusgood`} target="_blank">
+                  <span className="normal-blend-mode">
+                    <SiTelegram className="size-4" />
+                  </span>
+                </a>
+              </Button>
+            ) : null}
+            {resumeData.contact.social?.find(s => s.icon === 'github') && (
+              <Button
+                className="size-8 contact-button"
+                variant="outline"
+                size="icon"
+                asChild
+              >
+                <a href={resumeData.contact.social.find(s => s.icon === 'github')!.url} target="_blank" rel="noopener noreferrer">
+                  <span className="normal-blend-mode">
+                    <GitHubIcon className="size-4" />
+                  </span>
+                </a>
+              </Button>
+            )}
+            {resumeData.contact.social?.find(s => s.icon === 'linkedin') && (
+              <Button
+                className="size-8 contact-button"
+                variant="outline"
+                size="icon"
+                asChild
+              >
+                <a href={resumeData.contact.social.find(s => s.icon === 'linkedin')!.url} target="_blank" rel="noopener noreferrer">
+                  <span className="normal-blend-mode">
+                    <LinkedInIcon className="size-4" />
+                  </span>
+                </a>
+              </Button>
+            )}
+            {resumeData.contact.social?.find(s => s.icon === 'x') && (
+              <Button
+                className="size-8 contact-button"
+                variant="outline"
+                size="icon"
+                asChild
+              >
+                <a href={resumeData.contact.social.find(s => s.icon === 'x')!.url} target="_blank" rel="noopener noreferrer">
+                  <span className="normal-blend-mode">
+                    <SiX className="size-4" />
+                  </span>
+                </a>
+              </Button>
+            )}
+          </>
         )}
 
       </div >
