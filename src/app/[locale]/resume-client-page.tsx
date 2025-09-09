@@ -16,13 +16,8 @@ import { ThemeAwareHeart } from "@/components/ui/theme-aware-heart";
 import { useState } from "react";
 import { useTranslations } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
+import { iconComponents } from '@/lib/constants';
 import { GitHubIcon, LinkedInIcon } from '@/components/icons';
-
-const iconComponents = {
-  github: GitHubIcon,
-  linkedin: LinkedInIcon,
-  x: SiX,
-};
 
 interface Social {
   name: string;

@@ -2,13 +2,14 @@ import { Providers } from "@/components/providers";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
+import { LOCALES } from "@/lib/constants";
 
 import React from "react";
 import favicon from "../favicon.png";
 import appleIcon from "../apple-icon.png";
 
 export async function generateStaticParams() {
-  return ["en", "ru"].map((locale) => ({ locale }));
+  return LOCALES.map((locale) => ({ locale }));
 }
 
 export const metadata: Metadata = {
@@ -29,7 +30,8 @@ export default async function RootLayout({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const messages = (await import(`../../messages/${locale}.json`)).default;
+  const messagesModule = await import(`../../messages/${locale}.json`);
+  const messages = messagesModule.default;
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>

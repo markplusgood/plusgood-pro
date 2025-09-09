@@ -16,16 +16,27 @@ export function ThemeAwareHeart() {
       <style>
         {`
           @keyframes heartbeat {
-            0%, 100% {
+            0%, {
               transform: scale(1);
             }
             10% {
               transform: scale(1.1);
             }
+
+            20% {
+              transform: scale(1);
+            }
+
+            60% {
+              transform: scale(1.17);
+            }
+            62% {
+              transform: scale(1);
+            }
           }
 
           .heartbeat {
-            animation: heartbeat 0.441s infinite;
+            animation: heartbeat 0.821s infinite;
           }
         `}
       </style>
