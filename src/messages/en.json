@@ -1,0 +1,256 @@
+{
+  "RESUME_DATA": {
+    "name": "Mark Mikhalev",
+    "initials": "MM",
+    "location": "Georgia, GET",
+    "locationLink": "https://maps.app.goo.gl/KyTruQPXLKrH3yUj8",
+    "about": "AI Automation Engineer | Customer Advocate | Team Lead",
+    "summary": [
+      "I create work environments where agentic AI automations handle tedious tasks, and teams focus on the human side of work they actually enjoy.",
+      "As a generalist with a passion for tech, I acquired a diverse experience and skill set that enables me to benefit both digital and traditional projects — working with code and with people, fostering customer relations, managing hybrid teams, or building data-driven AI-enabled systems that lighten the load and boost teams' efficiency and well-being.",
+      "Managing people and processes with care, creating high-trust work environments that facilitate growth, and striving to deliver exceptional service — these have always been the focus of my work. These are my two cents on manifesting the culture of abundance.",
+      "You can find an outline of my tech experience and relevant skills below, or <a href=\"/Support automation engineer - Mark Mikhalev - CV.pdf\" target=\"_blank\" class=\"underline\">click here</a> to download my CV. And if any of it resonates with your wants or needs, hit one of those contact buttons on the right and drop me a line. I’ll be happy to hear from you and talk about how my experience and skill set can help your project."
+    ],
+    "avatarUrl": "https://raw.githubusercontent.com/markplusgood/plusgood.pro/main/src/images/avatar.jpeg",
+    "personalWebsiteUrl": "plusgood.pro",
+    "contact": {
+      "email": "mark@plusgood.pro",
+      "tel": "https://t.me/markplusgood",
+      "social": [
+        {
+          "name": "GitHub",
+          "url": "https://github.com/markplusgood"
+        },
+        {
+          "name": "LinkedIn",
+          "url": "https://www.linkedin.com/in/markplusgood/"
+        },
+        {
+          "name": "X",
+          "url": "https://x.com/MarkPlusgood"
+        }
+      ]
+    },
+    "work": [
+      {
+        "company": "NDA",
+        "link": "",
+        "badges": [
+          "Remote"
+        ],
+        "positions": [
+          {
+            "title": "AI Automation and Quality Engineer",
+            "start": "May 2025",
+            "end": "Sept 2025",
+            "description": [
+              "Built and optimized AI-driven automated workflows and QA processes for the internal services team, boosting delivery speed and reducing workload by 25%.",
+              "Developed a data-driven AI-enabled quality assurance framework that provided clear metrics for optimizing performance and future growth.",
+              "Created comprehensive documentation and user manuals to help with long-term maintenance of these solutions."
+            ]
+          }
+        ]
+      },
+      {
+        "company": "FunnelFox",
+        "link": "https://funnelfox.com/",
+        "badges": [
+          "Remote"
+        ],
+        "positions": [
+          {
+            "title": "Tech Support Engineer at FunnelFox",
+            "start": "Dec 2024",
+            "end": "May 2025",
+            "description": [
+              "Provided expert-level technical support for businesses leveraging the FunnelFox web2app platform.",
+              "Conducted in-depth technical investigations to resolve and escalate complex customer issues.",
+              "Designed and implemented workflow automations that enhanced team performance.",
+              "Reduced lost case instances to zero, strengthening client relationships.",
+              "-Co-developed support team workflows and established key performance indicators (KPIs) to track success.",
+              "Maintained and improved product documentation."
+            ]
+          }
+        ]
+      },
+      {
+        "company": "TripleTen",
+        "link": "https://tripleten.com",
+        "badges": [
+          "Remote"
+        ],
+        "positions": [
+          {
+            "title": "Customer support team lead",
+            "start": "Jul 2023",
+            "end": "Oct 2023",
+            "description": [
+              "Led a global team of 10 technical and educational support agents, fostering a collaborative and high-performance culture.",
+              "Ensured the hiring processes filled the team with desired talent.",
+              "Managed the selection and migration to a new software stack, streamlined cross-team data integration, and unlocked new opportunities for leveraging state-of-the-art tech for team efficiency and customer satisfaction."
+            ]
+          },
+          {
+            "title": "Senior customer support agent",
+            "start": "Oct 2021",
+            "end": "Jul 2023",
+            "description": [
+              "Fostered team efficiency and user satisfaction by delivering exceptional technical and educational support and serving as a role model for colleagues, keeping their endorsement at 99%.",
+              "Acted as a technical authority, providing expertise to colleagues and users, ensuring the team's adherence to company policies and standards.",
+              "Provided continuous quality assurance for maintaining the service up to the company’s standards and developing the team’s talent.",
+              "Built and maintained a comprehensive support analytics system to track team performance, workload, and collect valuable UX insights for product teams.",
+              "Designed, built, and maintained robust processes and automations to ensure exceptional support, seamless inter-team collaboration, and team development.",
+              "Served as the connecting point for cross-team collaborations and knowledge sharing."
+            ]
+          },
+          {
+            "title": "Customer support agent",
+            "start": "Oct 2020",
+            "end": "Oct 2021",
+            "description": [
+              "Resolved 3,000+ customer cases with 100% compliance to company standards, maintaining CSAT at 99%.",
+              "Provided technical, educational, and emotional support to hundreds of students from diverse backgrounds launching their tech careers globally."
+            ]
+          }
+        ]
+      },
+      {
+        "company": "Instaon",
+        "link": "https://instaon.io/en",
+        "badges": [
+          "Remote"
+        ],
+        "positions": [
+          {
+            "title": "Customer success manager",
+            "start": "Feb 2019",
+            "end": "Oct 2019",
+            "description": [
+              "Onboarded and guided 100+ agencies and SMBs in integrating a novel AI solution into their digital marketing strategies.",
+              "Conducted business verification and fraud detection activities and ensured customers' compliance with ad network policies, keeping the company’s Google Ads Partner account free from low-quality traffic and strikes.",
+              "Acted as a trusted advisor, resolving technical and strategic challenges in implementing proprietary LLM tools and campaign management.",
+              "Served as the voice of the customer, collecting and channeling CX data to inform product development."
+            ]
+          }
+        ]
+      },
+      {
+        "company": "Freelance",
+        "link": "",
+        "badges": [
+          "Remote"
+        ],
+        "positions": [
+          {
+            "title": "Digital marketing manager",
+            "start": "Sept 2017",
+            "end": "Oct 2019",
+            "description": [
+              "Created and managed dozens of Google Ads and Yandex Ads campaigns, increasing client sales by an average of 45% while reducing marketing spend by up to 30% through improved copywriting, targeting, and bid optimization.",
+              "Provided digital marketing consulting to SMBs, conducting comprehensive audits and implementing conversion optimization strategies that improved campaign ROI by an average of 30%"
+            ]
+          },
+          {
+            "title": "Translator",
+            "start": "Sept 2017",
+            "end": "Oct 2019",
+            "description": [
+              "Translated 500+ pages across English, Russian, and Spanish for international clients, handling diverse content from medical documentation and business plans to entertainment media like BBC's Top Gear, while maintaining cultural accuracy and brand voice consistency."
+            ]
+          }
+        ]
+      },
+      {
+        "company": "Farbik",
+        "link": "https://farbik.ru/",
+        "badges": [
+          "Remote"
+        ],
+        "positions": [
+          {
+            "title": "Web content editor",
+            "start": "Jun 2013",
+            "end": "Apr 2016",
+            "description": [
+              "Led a team of 20+ copywriters and graphic designers to deliver high-quality content that provided users with learning materials and veritable answers to their most asked questions, and drove company revenue.",
+              "Owned full content lifecycle: from SEO-driven content planning through final editing and publication of more than 4000 articles.",
+              "Ensured all deliverables met usability standards and SEO requirements."
+            ]
+          }
+        ]
+      }
+    ],
+    "skills": [
+      "Python",
+      "Process Automation & RPA",
+      "Workflow Building",
+      "Workflow Orchestration",
+      "AI/LLM Integration",
+      "Prompt Engineering",
+      "n8n",
+      "Zapier",
+      "Make",
+      "REST API",
+      "API Integration",
+      "JSON",
+      "Data Pipeline Automation",
+      "ETL/Data Pipeline Development",
+      "Analytical Data Architecture",
+      "Google Cloud Vertex AI",
+      "Google Cloud Compute Engine",
+      "Google Cloud APIs & Services",
+      "Google Cloud IAM & Admin",
+      "Quality Assurance",
+      "Automation Testing",
+      "Performance Optimization",
+      "Business Process Optimization",
+      "GIT",
+      "CLI",
+      "Bash",
+      "DevTools",
+      "Docker/Containerization",
+      "SQL",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "React",
+      "Next.js",
+      "IAM/RBAC",
+      "Data Analysis & Presentation",
+      "A/B Testing & Experimentation",
+      "Software Troubleshooting",
+      "BPMN",
+      "Agile/Scrum",
+      "Documentation Strategy",
+      "SOC 2",
+      "Low/No-Code Development",
+      "CRM & Helpdesk Systems Administration",
+      "Web Design and Development",
+      "Chatbot Development",
+      "Multimedia Content Creation",
+      "SEO Optimization",
+      "Practical Optimism",
+      "Self-Directed Leadership",
+      "Radical Candor",
+      "Transparent Communication",
+      "Solution-Oriented Leadership",
+      "Cross-Cultural Communication",
+      "Psychological Safety Advocacy",
+      "Inclusive Team Building",
+      "Growth Mindset",
+      "Resilience & Adaptability",
+      "Project Management",
+      "Stakeholder Management",
+      "Business Communications",
+      "Customer Feedback Analysis",
+      "Team Development",
+      "Vendor Management",
+      "Technical & Creative Writing",
+      "Creative Production Management",
+      "Stress Management",
+      "Conflict Resolution",
+      "Proactive Problem-R  esolution",
+      "Creative Content Production"
+    ]
+  }
+}
