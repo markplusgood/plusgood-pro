@@ -210,26 +210,6 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
                     <LanguagesIcon className="size-4" />
                   </span>
                 </Button>
-                {/* Social buttons (Drawer) */}
-                {resumeData.contact.social?.map((s: Social) => {
-                  const IconComp = iconComponents[s.icon as keyof typeof iconComponents];
-                  if (!s.url || !IconComp) return null;
-                  return (
-                    <Button
-                      key={s.name}
-                      className="size-8 contact-button"
-                      variant="outline"
-                      size="icon"
-                      asChild
-                    >
-                      <a href={s.url} target="_blank" rel="noopener noreferrer" >
-                        <span className="normal-blend-mode" >
-                          <IconComp className="size-4" />
-                        </span>
-                      </a>
-                    </Button>
-                  );
-                })}
                 {resumeData.contact.email ? (
                   <Button
                     className="size-8 contact-button"
@@ -258,6 +238,48 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
                     </a>
                   </Button>
                 ) : null}
+                {resumeData.contact.social?.find(s => s.icon === 'github') && (
+                  <Button
+                    className="size-8 contact-button"
+                    variant="outline"
+                    size="icon"
+                    asChild
+                  >
+                    <a href={resumeData.contact.social.find(s => s.icon === 'github')!.url} target="_blank" rel="noopener noreferrer">
+                      <span className="normal-blend-mode">
+                        <GitHubIcon className="size-4" />
+                      </span>
+                    </a>
+                  </Button>
+                )}
+                {resumeData.contact.social?.find(s => s.icon === 'linkedin') && (
+                  <Button
+                    className="size-8 contact-button"
+                    variant="outline"
+                    size="icon"
+                    asChild
+                  >
+                    <a href={resumeData.contact.social.find(s => s.icon === 'linkedin')!.url} target="_blank" rel="noopener noreferrer">
+                      <span className="normal-blend-mode">
+                        <LinkedInIcon className="size-4" />
+                      </span>
+                    </a>
+                  </Button>
+                )}
+                {resumeData.contact.social?.find(s => s.icon === 'x') && (
+                  <Button
+                    className="size-8 contact-button"
+                    variant="outline"
+                    size="icon"
+                    asChild
+                  >
+                    <a href={resumeData.contact.social.find(s => s.icon === 'x')!.url} target="_blank" rel="noopener noreferrer">
+                      <span className="normal-blend-mode">
+                        <SiX className="size-4" />
+                      </span>
+                    </a>
+                  </Button>
+                )}
 
               </div>
             </DrawerContent>
@@ -291,62 +313,76 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
             <LanguagesIcon className="size-4" />
           </span>
         </Button>
-
-        {/* Social buttons (Desktop) */}
-        {
-          resumeData.contact.social?.map((s: Social) => {
-            const IconComp = iconComponents[s.icon as keyof typeof iconComponents];
-            if (!s.url || !IconComp) return null;
-            return (
-              <Button
-                key={s.name}
-                className="size-8 contact-button"
-                variant="outline"
-                size="icon"
-                asChild
-              >
-                <a href={s.url} target="_blank" rel="noopener noreferrer">
-                  <span className="normal-blend-mode">
-                    <IconComp className="size-4" />
-                  </span>
-                </a>
-              </Button>
-            );
-          })
-        }
-
-        {
-          resumeData.contact.email ? (
-            <Button
-              className="size-8 contact-button"
-              variant="outline"
-              size="icon"
-              asChild
-            >
-              <a href={`mailto:${resumeData.contact.email}`} target="_blank">
-                <span className="normal-blend-mode">
-                  <MailIcon className="size-4" />
-                </span>
-              </a>
-            </Button>
-          ) : null
-        }
-        {
-          resumeData.contact.tel ? (
-            <Button
-              className="size-8 contact-button"
-              variant="outline"
-              size="icon"
-              asChild
-            >
-              <a href={`https://t.me/markplusgood`} target="_blank">
-                <span className="normal-blend-mode">
-                  <SiTelegram className="size-4" />
-                </span>
-              </a>
-            </Button>
-          ) : null
-        }
+        {resumeData.contact.email ? (
+          <Button
+            className="size-8 contact-button"
+            variant="outline"
+            size="icon"
+            asChild
+          >
+            <a href={`mailto:${resumeData.contact.email}`} target="_blank">
+              <span className="normal-blend-mode">
+                <MailIcon className="size-4" />
+              </span>
+            </a>
+          </Button>
+        ) : null}
+        {resumeData.contact.tel ? (
+          <Button
+            className="size-8 contact-button"
+            variant="outline"
+            size="icon"
+            asChild
+          >
+            <a href={`https://t.me/markplusgood`} target="_blank">
+              <span className="normal-blend-mode">
+                <SiTelegram className="size-4" />
+              </span>
+            </a>
+          </Button>
+        ) : null}
+        {resumeData.contact.social?.find(s => s.icon === 'github') && (
+          <Button
+            className="size-8 contact-button"
+            variant="outline"
+            size="icon"
+            asChild
+          >
+            <a href={resumeData.contact.social.find(s => s.icon === 'github')!.url} target="_blank" rel="noopener noreferrer">
+              <span className="normal-blend-mode">
+                <GitHubIcon className="size-4" />
+              </span>
+            </a>
+          </Button>
+        )}
+        {resumeData.contact.social?.find(s => s.icon === 'linkedin') && (
+          <Button
+            className="size-8 contact-button"
+            variant="outline"
+            size="icon"
+            asChild
+          >
+            <a href={resumeData.contact.social.find(s => s.icon === 'linkedin')!.url} target="_blank" rel="noopener noreferrer">
+              <span className="normal-blend-mode">
+                <LinkedInIcon className="size-4" />
+              </span>
+            </a>
+          </Button>
+        )}
+        {resumeData.contact.social?.find(s => s.icon === 'x') && (
+          <Button
+            className="size-8 contact-button"
+            variant="outline"
+            size="icon"
+            asChild
+          >
+            <a href={resumeData.contact.social.find(s => s.icon === 'x')!.url} target="_blank" rel="noopener noreferrer">
+              <span className="normal-blend-mode">
+                <SiX className="size-4" />
+              </span>
+            </a>
+          </Button>
+        )}
 
       </div >
       <ThemeAwareHeart />
