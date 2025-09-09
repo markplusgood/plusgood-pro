@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Drawer, DrawerTrigger, DrawerContent, DrawerTitle } from "@/components/ui/drawer";
 import { Section } from "@/components/ui/section";
 import { SmartLineBreak } from "@/components/SmartLineBreakProps";
-import { GlobeIcon, MailIcon, MoonIcon, SunIcon, LanguagesIcon } from "lucide-react";
+import { GlobeIcon, MailIcon, MoonIcon, SunIcon, LanguagesIcon, Link, CalendarDaysIcon } from "lucide-react";
 import { SiTelegram, SiX, } from '@icons-pack/react-simple-icons';
 import { Button } from "@/components/ui/button";
 import { useMounted } from "@/lib/hooks";
@@ -134,10 +134,14 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
                 <CardHeader>
                   <div className="flex items-center justify-between gap-x-2 text-base">
                     <h3 className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none">
-                      <a className="hover:underline" href={work.link} target="_blank">
-                        {work.company}
-                      </a>
-
+                      {work.link ? (
+                        <a className="inline-flex items-center gap-x-1 hover:underline" href={work.link} target="_blank">
+                          {work.company}
+                          <Link className="size-3" />
+                        </a>
+                      ) : (
+                        <span>{work.company}</span>
+                      )}
                     </h3>
                   </div>
                 </CardHeader>
@@ -224,6 +228,18 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
                     </a>
                   </Button>
                 ) : null}
+                <Button
+                  className="size-8 contact-button"
+                  variant="outline"
+                  size="icon"
+                  asChild
+                >
+                  <a href="https://calendly.com/markplusgood/15min-chat" target="_blank" rel="noopener noreferrer">
+                    <span className="normal-blend-mode">
+                      <CalendarDaysIcon className="size-4" />
+                    </span>
+                  </a>
+                </Button>
                 {resumeData.contact.tel ? (
                   <Button
                     className="size-8 contact-button"
@@ -327,6 +343,18 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
             </a>
           </Button>
         ) : null}
+        <Button
+          className="size-8 contact-button"
+          variant="outline"
+          size="icon"
+          asChild
+        >
+          <a href="https://calendly.com/markplusgood/15min-chat" target="_blank" rel="noopener noreferrer">
+            <span className="normal-blend-mode">
+              <CalendarDaysIcon className="size-4" />
+            </span>
+          </a>
+        </Button>
         {resumeData.contact.tel ? (
           <Button
             className="size-8 contact-button"

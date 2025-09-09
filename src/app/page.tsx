@@ -1,5 +1,7 @@
 import { redirect } from 'next/navigation';
+import { getLocale } from 'next-intl/server';
 
-export default function RootPage() {
-    redirect('/en');
+export default async function RootPage() {
+    const locale = await getLocale();
+    redirect(`/${locale}`);
 }

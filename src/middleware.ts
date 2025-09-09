@@ -6,7 +6,9 @@ export default createMiddleware({
   // Default when no locale is present
   defaultLocale: 'en',
   // Always use explicit prefixes so /en and /ru resolve consistently
-  localePrefix: 'always'
+  localePrefix: 'always',
+  // Enable locale detection from browser/system settings
+  localeDetection: true
 });
 
 export const config = {
