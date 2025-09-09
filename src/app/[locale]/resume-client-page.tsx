@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Drawer, DrawerTrigger, DrawerContent, DrawerTitle } from "@/components/ui/drawer";
 import { Section } from "@/components/ui/section";
 import { SmartLineBreak } from "@/components/SmartLineBreakProps";
-import { GlobeIcon, MailIcon, MoonIcon, SunIcon, LanguagesIcon, Link, CalendarDaysIcon } from "lucide-react";
+import { GlobeIcon, MailIcon, MoonIcon, SunIcon, LanguagesIcon, Link, CalendarDaysIcon, GripVertical } from "lucide-react";
 import { SiTelegram, SiX, } from '@icons-pack/react-simple-icons';
 import { Button } from "@/components/ui/button";
 import { useMounted } from "@/lib/hooks";
@@ -182,20 +182,20 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
         </section>
 
         {/* Drawer trigger button - visible on small screens */}
-        <div className="fixed right-0 top-1/2 -translate-y-1/2 block md:hidden">
+        <div className="fixed right-0 top-1/2 -translate-y-1/2 block md:hidden" style={{ width: '36px', height: '52px' }}>
           <Drawer direction="right" open={isDrawerOpen} onOpenChange={setDrawerOpen}>
             <DrawerTrigger asChild>
-              <Button variant="outline" className="h-20 w-8">
-                ||
+              <Button variant="ghost" className="w-full h-full px-2 py-1">
+                <GripVertical size={22} />
               </Button>
             </DrawerTrigger>
-            <DrawerContent className="top-1/2 -translate-y-1/2">
+            <DrawerContent>
               <DrawerTitle className="sr-only">Contact Links</DrawerTitle>
-              <div className="p-4 flex flex-col gap-y-2">
+              <div className="pl-4 pr-4 pt-4 pb-4 flex flex-col gap-y-2 items-end">
                 {mounted && (
                   <>
                     <Button
-                      className="size-8 contact-button"
+                      className="size-8 contact-button pointer-events-auto"
                       variant="outline"
                       size="icon"
                       onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
@@ -205,7 +205,7 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
                       </span>
                     </Button>
                     <Button
-                      className="size-8 contact-button"
+                      className="size-8 contact-button pointer-events-auto"
                       variant="outline"
                       size="icon"
                       onClick={() => switchLocale(locale === 'en' ? 'ru' : 'en')}
@@ -216,7 +216,7 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
                     </Button>
                     {resumeData.contact.email ? (
                       <Button
-                        className="size-8 contact-button"
+                        className="size-8 contact-button pointer-events-auto"
                         variant="outline"
                         size="icon"
                         asChild
@@ -229,7 +229,7 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
                       </Button>
                     ) : null}
                     <Button
-                      className="size-8 contact-button"
+                      className="size-8 contact-button pointer-events-auto"
                       variant="outline"
                       size="icon"
                       asChild
@@ -242,7 +242,7 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
                     </Button>
                     {resumeData.contact.tel ? (
                       <Button
-                        className="size-8 contact-button"
+                        className="size-8 contact-button pointer-events-auto"
                         variant="outline"
                         size="icon"
                         asChild
@@ -256,7 +256,7 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
                     ) : null}
                     {resumeData.contact.social?.find(s => s.icon === 'github') && (
                       <Button
-                        className="size-8 contact-button"
+                        className="size-8 contact-button pointer-events-auto"
                         variant="outline"
                         size="icon"
                         asChild
@@ -270,7 +270,7 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
                     )}
                     {resumeData.contact.social?.find(s => s.icon === 'linkedin') && (
                       <Button
-                        className="size-8 contact-button"
+                        className="size-8 contact-button pointer-events-auto"
                         variant="outline"
                         size="icon"
                         asChild
@@ -284,7 +284,7 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
                     )}
                     {resumeData.contact.social?.find(s => s.icon === 'x') && (
                       <Button
-                        className="size-8 contact-button"
+                        className="size-8 contact-button pointer-events-auto"
                         variant="outline"
                         size="icon"
                         asChild
