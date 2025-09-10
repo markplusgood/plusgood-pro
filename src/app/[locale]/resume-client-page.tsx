@@ -12,7 +12,7 @@ import { useMounted } from "@/lib/hooks";
 import { useTheme } from "next-themes";
 import { GoogleTagManager } from '@next/third-parties/google';
 import { ThemeAwareHeart } from "@/components/ui/theme-aware-heart";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslations } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
 import { ActionButtons } from '@/components/ActionButtons';
@@ -63,12 +63,21 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
   const pathname = usePathname();
 
   const switchLocale = (newLocale: string) => {
+    localStorage.setItem('scrollPosition', window.scrollY.toString());
     router.replace(pathname.replace(/\/(en|ru)/, `/${newLocale}`));
   };
 
   const [isDrawerOpen, setDrawerOpen] = useState(false);
   const { theme, setTheme, resolvedTheme } = useTheme();
   const mounted = useMounted();
+
+  useEffect(() => {
+    const savedScroll = localStorage.getItem('scrollPosition');
+    if (savedScroll) {
+      window.scrollTo(0, parseInt(savedScroll));
+      localStorage.removeItem('scrollPosition');
+    }
+  }, [locale]);
 
   return (
     <main className="container relative mx-auto scroll-my-12 overflow-auto px-16 py-8 print:p-12">
