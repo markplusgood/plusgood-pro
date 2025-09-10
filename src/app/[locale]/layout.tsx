@@ -19,6 +19,10 @@ export const metadata: Metadata = {
     icon: favicon.src,
     apple: appleIcon.src,
   },
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default async function RootLayout({
