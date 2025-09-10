@@ -16,6 +16,7 @@ import { useState } from "react";
 import { useTranslations } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
 import { ActionButtons } from '@/components/ActionButtons';
+import AsciiAnimation from '@/components/AsciiAnimation';
 
 interface Social {
   name: string;
@@ -107,8 +108,11 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
 
 
           </div>
+          <div className="w-full h-20 bg-transparent overflow-hidden flex items-center justify-center">
+            <AsciiAnimation />
+          </div>
           <Section>
-            <h2 className="text-xl font-bold text-center">{t('about')}</h2>
+            <h2 className="text-xl font-bold text-center">About</h2>
             <div className="text-pretty font-mono text-sm text-muted-foreground print:text-[12px]">
               {resumeData.summary.map((paragraph: string, index: number) => (
                 <p
