@@ -17,6 +17,7 @@ import { useTranslations } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
 import { ActionButtons } from '@/components/ActionButtons';
 import AsciiAnimation from '@/components/AsciiAnimation';
+import RabbitAnimation from '@/components/RabbitAnimation';
 
 interface Social {
   name: string;
@@ -108,8 +109,9 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
 
 
           </div>
-          <div className="w-full h-20 bg-transparent overflow-hidden flex items-center justify-center">
-            <AsciiAnimation />
+          <div className="w-full h-56 bg-transparent overflow-hidden flex items-center justify-center -mt-8">
+            {/* <AsciiAnimation /> */}
+            <RabbitAnimation />
           </div>
           <Section>
             <h2 className="text-xl font-bold text-center">About</h2>
