@@ -71,7 +71,7 @@ export function PersistentMobileBar() {
 
     return (
         <div className="fixed right-0 top-1/2 -translate-y-1/2 block md:hidden" style={{ width: '36px', height: '52px' }}>
-            <Sheet open={isMobileBarOpen} onOpenChange={setMobileBarOpen}>
+            <Sheet modal={false} open={isMobileBarOpen} onOpenChange={setMobileBarOpen}>
                 <SheetTrigger asChild>
                     <Button variant="ghost" className="w-full h-full px-2 py-1">
                         <GripVertical size={22} />
