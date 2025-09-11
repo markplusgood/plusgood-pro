@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { MobileBarProvider } from "@/components/MobileBarContext";
@@ -8,6 +9,13 @@ const inter = Inter({
     subsets: ["latin"],
     display: "swap",
 });
+
+export const metadata: Metadata = {
+    robots: {
+        index: false,
+        follow: false,
+    },
+};
 
 export default function RootLayout({
     children,
