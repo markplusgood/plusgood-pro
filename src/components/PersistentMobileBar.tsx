@@ -79,7 +79,7 @@ export function PersistentMobileBar() {
                         </Button>
                     </SheetTrigger>
                 )}
-                <SheetContent side="right" className="p-4 bg-background/66 w-auto max-w-xs border-0">
+                <SheetContent side="right" className="p-4 bg-transparent w-auto max-w-xs border-0">
                     <SheetTitle className="sr-only">Contact Links</SheetTitle>
                     <div className="flex flex-col justify-center h-full">
                         <ActionButtons
