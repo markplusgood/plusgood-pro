@@ -74,7 +74,7 @@ export function ActionButtons({
                 size="icon"
                 asChild
             >
-                <a href="https://calendly.com/markplusgood/15min-chat" target="_blank" rel="noopener noreferrer">
+                <a href="https://calendly.com/markplusgood/15min-chat" target="_blank" rel="noopener noreferrer" className="hover:bg-accent hover:text-accent-foreground">
                     <span className="normal-blend-mode">
                         <CalendarDaysIcon className="size-4" />
                     </span>
@@ -87,7 +87,7 @@ export function ActionButtons({
                     size="icon"
                     asChild
                 >
-                    <a href={`https://t.me/markplusgood`} target="_blank">
+                    <a href={`https://t.me/markplusgood`} target="_blank" className="hover:bg-accent hover:text-accent-foreground">
                         <span className="normal-blend-mode">
                             <SiTelegram className="size-4" />
                         </span>

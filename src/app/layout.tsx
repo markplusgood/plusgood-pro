@@ -1,5 +1,8 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { MobileBarProvider } from "@/components/MobileBarContext";
+import { PersistentMobileBar } from "@/components/PersistentMobileBar";
+import { Providers } from "@/components/providers";
 
 const inter = Inter({
     subsets: ["latin"],
@@ -14,7 +17,12 @@ export default function RootLayout({
     return (
         <html className={inter.className} suppressHydrationWarning>
             <body suppressHydrationWarning>
-                {children}
+                <Providers>
+                    <MobileBarProvider>
+                        {children}
+                        <PersistentMobileBar />
+                    </MobileBarProvider>
+                </Providers>
             </body>
         </html>
     );

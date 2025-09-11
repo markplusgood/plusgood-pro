@@ -1,8 +1,9 @@
-import { Providers } from "@/components/providers";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 import { LOCALES } from "@/lib/constants";
+import { getResumeData } from "@/data/resume-data";
+import { DataProvider } from "@/components/DataProvider";
 
 import React from "react";
 import favicon from "../favicon.png";
@@ -36,10 +37,13 @@ export default async function RootLayout({
   setRequestLocale(locale);
   const messagesModule = await import(`../../messages/${locale}.json`);
   const messages = messagesModule.default;
+  const resumeData = await getResumeData(locale);
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
-      <Providers>{children}</Providers>
+      <DataProvider resumeData={resumeData} locale={locale}>
+        {children}
+      </DataProvider>
     </NextIntlClientProvider>
   );
 }
