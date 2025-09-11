@@ -7,7 +7,7 @@ import { ActionButtons } from '@/components/ActionButtons';
 import { useMobileBar } from './MobileBarContext';
 import { useTheme } from 'next-themes';
 import { useRouter, usePathname } from 'next/navigation';
-import { useLayoutEffect } from 'react';
+import { useLayoutEffect, useEffect } from 'react';
 
 export function PersistentMobileBar() {
     const { isMobileBarOpen, setMobileBarOpen, resumeData, locale } = useMobileBar();
@@ -38,6 +38,23 @@ export function PersistentMobileBar() {
             }, 10);
         }
     }, [locale, setMobileBarOpen]);
+
+    // Close mobile bar when viewport crosses breakpoint
+    useEffect(() => {
+        if (typeof window === 'undefined') return;
+
+        const handleResize = () => {
+            if (window.innerWidth >= 768 && isMobileBarOpen) {
+                setMobileBarOpen(false);
+            }
+        };
+
+        window.addEventListener('resize', handleResize);
+        // Check on mount in case already at large size
+        handleResize();
+
+        return () => window.removeEventListener('resize', handleResize);
+    }, [isMobileBarOpen, setMobileBarOpen]);
 
     if (!resumeData) return null;
 
