@@ -52,7 +52,12 @@ interface MobileBarContextType {
 const MobileBarContext = createContext<MobileBarContextType | undefined>(undefined);
 
 export function MobileBarProvider({ children }: { children: ReactNode }) {
-    const [isMobileBarOpen, setMobileBarOpen] = useState(false);
+    const [isMobileBarOpen, setMobileBarOpen] = useState(() => {
+        if (typeof window !== 'undefined') {
+            return localStorage.getItem('mobileBarOpen') === 'true';
+        }
+        return false;
+    });
     const [resumeData, setResumeData] = useState<ResumeData | null>(null);
     const [locale, setLocale] = useState('en');
 

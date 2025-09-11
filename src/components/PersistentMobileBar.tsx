@@ -7,6 +7,7 @@ import { ActionButtons } from '@/components/ActionButtons';
 import { useMobileBar } from './MobileBarContext';
 import { useTheme } from 'next-themes';
 import { useRouter, usePathname } from 'next/navigation';
+import { useLayoutEffect } from 'react';
 
 export function PersistentMobileBar() {
     const { isMobileBarOpen, setMobileBarOpen, resumeData, locale } = useMobileBar();
@@ -14,13 +15,40 @@ export function PersistentMobileBar() {
     const router = useRouter();
     const pathname = usePathname();
 
+    useLayoutEffect(() => {
+        if (typeof window === 'undefined') return;
+
+        const savedPercent = localStorage.getItem('scrollPercent');
+        if (savedPercent) {
+            // Use multiple requestAnimationFrame for better timing
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    const targetScroll = (parseFloat(savedPercent) / 100) * (document.documentElement.scrollHeight - window.innerHeight);
+                    window.scrollTo(0, targetScroll);
+                    localStorage.removeItem('scrollPercent');
+                });
+            });
+        }
+        const savedMobileBar = localStorage.getItem('mobileBarOpen');
+        if (savedMobileBar === 'true') {
+            // Delay to ensure component is fully mounted
+            setTimeout(() => {
+                setMobileBarOpen(true);
+                localStorage.removeItem('mobileBarOpen');
+            }, 10);
+        }
+    }, [locale, setMobileBarOpen]);
+
     if (!resumeData) return null;
 
     const switchLocale = (newLocale: string) => {
+        console.log('Mobile bar locale switch triggered:', newLocale);
         // Save scroll position as percentage to handle content height changes
         const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-        localStorage.setItem('scrollPercent', scrollPercent.toString());
-        localStorage.setItem('mobileBarOpen', isMobileBarOpen.toString());
+        if (typeof window !== 'undefined') {
+            localStorage.setItem('scrollPercent', scrollPercent.toString());
+            localStorage.setItem('mobileBarOpen', 'true'); // Always save as open
+        }
         router.replace(pathname.replace(/\/(en|ru)/, `/${newLocale}`), { scroll: false });
     };
 

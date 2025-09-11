@@ -48,7 +48,10 @@ export function ActionButtons({
                 className={buttonClassName}
                 variant="outline"
                 size="icon"
-                onClick={onLocaleSwitch}
+                onClick={() => {
+                    console.log('ActionButtons locale switch clicked');
+                    onLocaleSwitch();
+                }}
             >
                 <span className="normal-blend-mode">
                     <LanguagesIcon className="size-4" />
@@ -61,7 +64,7 @@ export function ActionButtons({
                     size="icon"
                     asChild
                 >
-                    <a href={`mailto:${resumeData.contact.email}`} target="_blank">
+                    <a href={`mailto:${resumeData.contact.email}`} target="_blank" className="hover:bg-accent hover:text-accent-foreground focus-visible:bg-accent focus-visible:text-accent-foreground">
                         <span className="normal-blend-mode">
                             <MailIcon className="size-4" />
                         </span>
@@ -74,7 +77,7 @@ export function ActionButtons({
                 size="icon"
                 asChild
             >
-                <a href="https://calendly.com/markplusgood/15min-chat" target="_blank" rel="noopener noreferrer" className="hover:bg-accent hover:text-accent-foreground">
+                <a href="https://calendly.com/markplusgood/15min-chat" target="_blank" rel="noopener noreferrer" className="hover:bg-accent hover:text-accent-foreground focus-visible:bg-accent focus-visible:text-accent-foreground">
                     <span className="normal-blend-mode">
                         <CalendarDaysIcon className="size-4" />
                     </span>
@@ -87,7 +90,7 @@ export function ActionButtons({
                     size="icon"
                     asChild
                 >
-                    <a href={`https://t.me/markplusgood`} target="_blank" className="hover:bg-accent hover:text-accent-foreground">
+                    <a href={`https://t.me/markplusgood`} target="_blank" className="hover:bg-accent hover:text-accent-foreground focus-visible:bg-accent focus-visible:text-accent-foreground">
                         <span className="normal-blend-mode">
                             <SiTelegram className="size-4" />
                         </span>
@@ -101,7 +104,7 @@ export function ActionButtons({
                     size="icon"
                     asChild
                 >
-                    <a href={resumeData.contact.social.find(s => s.icon === 'github')!.url} target="_blank" rel="noopener noreferrer">
+                    <a href={resumeData.contact.social.find(s => s.icon === 'github')!.url} target="_blank" rel="noopener noreferrer" className="hover:bg-accent hover:text-accent-foreground">
                         <span className="normal-blend-mode">
                             <GitHubIcon className="size-4" />
                         </span>
@@ -115,7 +118,7 @@ export function ActionButtons({
                     size="icon"
                     asChild
                 >
-                    <a href={resumeData.contact.social.find(s => s.icon === 'linkedin')!.url} target="_blank" rel="noopener noreferrer">
+                    <a href={resumeData.contact.social.find(s => s.icon === 'linkedin')!.url} target="_blank" rel="noopener noreferrer" className="hover:bg-accent hover:text-accent-foreground focus-visible:bg-accent focus-visible:text-accent-foreground">
                         <span className="normal-blend-mode">
                             <LinkedInIcon className="size-4" />
                         </span>
@@ -129,7 +132,7 @@ export function ActionButtons({
                     size="icon"
                     asChild
                 >
-                    <a href={resumeData.contact.social.find(s => s.icon === 'x')!.url} target="_blank" rel="noopener noreferrer">
+                    <a href={resumeData.contact.social.find(s => s.icon === 'x')!.url} target="_blank" rel="noopener noreferrer" className="hover:bg-accent hover:text-accent-foreground focus-visible:bg-accent focus-visible:text-accent-foreground">
                         <span className="normal-blend-mode">
                             <SiX className="size-4" />
                         </span>

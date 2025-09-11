@@ -14,6 +14,7 @@ import { GoogleTagManager } from '@next/third-parties/google';
 import { ThemeAwareHeart } from "@/components/ui/theme-aware-heart";
 import { useEffect } from "react";
 import { useTranslations } from 'next-intl';
+import { useRouter, usePathname } from 'next/navigation';
 import { ActionButtons } from '@/components/ActionButtons';
 import AsciiAnimation from '@/components/AsciiAnimation';
 import RabbitAnimation from '@/components/RabbitAnimation';
@@ -62,9 +63,19 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
   const { resumeData: contextResumeData } = useMobileBar();
   const { theme, setTheme, resolvedTheme } = useTheme();
   const mounted = useMounted();
+  const router = useRouter();
+  const pathname = usePathname();
 
   const actualResumeData = resumeData || contextResumeData;
   if (!actualResumeData) return null;
+
+  const switchLocale = (newLocale: string) => {
+    console.log('Main content locale switch triggered:', newLocale);
+    // Save scroll position as percentage to handle content height changes
+    const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+    localStorage.setItem('scrollPercent', scrollPercent.toString());
+    router.replace(pathname.replace(/\/(en|ru)/, `/${newLocale}`), { scroll: false });
+  };
 
 
   return (
@@ -188,7 +199,7 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
             theme={theme}
             resolvedTheme={resolvedTheme}
             onThemeToggle={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
-            onLocaleSwitch={() => { }}
+            onLocaleSwitch={() => switchLocale(locale === 'en' ? 'ru' : 'en')}
             className="flex flex-col gap-y-2"
             buttonClassName="size-8 contact-button"
           />
