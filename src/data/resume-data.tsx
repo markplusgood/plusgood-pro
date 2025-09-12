@@ -30,8 +30,8 @@ export const getResumeData = async (locale: string) => {
 
   const summaryWithLink =
     locale === "ru"
-      ? 'Ниже вы найдете описание моего технического опыта и навыков. А если что-то из этого вам откликнется, нажмите на одну из кнопок для связи и напишите мне. Буду рад пообщаться и обсудить, как мой опыт может помочь вашему проекту. <a href="/Support automation engineer - Mark Mikhalev - CV ru.pdf" target="_blank" class="underline">Нажмите здесь</a>, чтобы скачать мое резюме.'
-      : 'You can find an outline of my tech experience and relevant skills below, or <a href="/Support automation engineer - Mark Mikhalev - CV.pdf" target="_blank" class="underline">click here</a> to download my CV. And if any of it resonates with your wants or needs, hit one of those contact buttons on the right and drop me a line. I’ll be happy to hear from you and talk about how my experience and skill set can help your project.';
+      ? ''
+      : '';
 
   return {
     name: t("name"),
@@ -41,8 +41,8 @@ export const getResumeData = async (locale: string) => {
     about: t("about"),
     summary: [...t.raw("summary") as string[], summaryWithLink],
     avatarUrl:
-      "https://raw.githubusercontent.com/markplusgood/plusgood.pro/main/src/images/avatar.jpeg",
-    personalWebsiteUrl: "plusgood.pro",
+      "",
+    personalWebsiteUrl: "plusgood.space",
     contact: {
       email: "mark@plusgood.pro",
       tel: "https://t.me/markplusgood",
