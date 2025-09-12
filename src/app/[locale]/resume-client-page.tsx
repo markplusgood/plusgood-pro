@@ -5,6 +5,7 @@ import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Sheet, SheetTrigger, SheetContent, SheetTitle } from "@/components/ui/sheet";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { Section } from "@/components/ui/section";
 import { SmartLineBreak } from "@/components/SmartLineBreakProps";
 import { GlobeIcon, Link, GripVertical } from "lucide-react";
@@ -20,6 +21,7 @@ import { ActionButtons } from '@/components/ActionButtons';
 import AsciiAnimation from '@/components/AsciiAnimation';
 import RabbitAnimation from '@/components/RabbitAnimation';
 import { useMobileBar } from '@/components/MobileBarContext';
+import parse, { domToReact } from 'html-react-parser';
 
 interface Social {
   name: string;
@@ -69,6 +71,106 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
 
   const actualResumeData = resumeData || contextResumeData;
   if (!actualResumeData) return null;
+
+  const modifyParagraph = (paragraph: string) => {
+    let modified = paragraph;
+    // Tooltips
+    modified = modified.replace(/abundance culture/g, '<span class="tooltip">abundance culture</span>');
+    modified = modified.replace(/БЯМ/g, '<span class="tooltip">БЯМ</span>');
+    // Hover cards
+    modified = modified.replace(/культуры изобилия/g, '<span class="hovercard">культуры изобилия</span>');
+    modified = modified.replace(/has come/g, '<span class="hovercard">has come</span>');
+    modified = modified.replace(/better, faster, and stronger/g, '<span class="hovercard">better, faster, and stronger</span>');
+    modified = modified.replace(/момент настал/g, '<span class="hovercard">момент настал</span>');
+    modified = modified.replace(/хорошие новости/g, '<span class="hovercard">хорошие новости</span>');
+    modified = modified.replace(/второй ренессанс/g, '<span class="hovercard">второй ренессанс</span>');
+    // Link hover cards
+    modified = modified.replace(/<a href="https:\/\/plusgood\.space"[^>]*>download my CV here<\/a>/g, '<span class="hovercard">$&</span>');
+    modified = modified.replace(/<a href="https:\/\/plusgood\.space"[^>]*> скачать резюме здесь<\/a>/g, '<span class="hovercard">$&</span>');
+    return modified;
+  };
+
+  const parseOptions = {
+    replace: (domNode: any) => {
+      if (domNode.name === 'span' && domNode.attribs?.class === 'tooltip') {
+        const word = domNode.children[0].data;
+        let content: React.ReactNode = "Tooltip content";
+        if (word === "abundance culture") content = "A culture of abundance is a mindset rooted in the belief that humans are not limited by our potential, nor by world resources. It contrasts with a scarcity mindset, which focuses on competition and fear, the basis for the zero-sum-game we currently play as a culture.";
+        if (word === "БЯМ") content = "Большая Языковая Модель, англ. Large Language Model";
+        return (
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <span className="underline text-blue-300 inline-block">{word}</span>
+            </TooltipTrigger>
+            <TooltipContent side="top">{content}</TooltipContent>
+          </Tooltip>
+        );
+      }
+      if (domNode.name === 'span' && domNode.attribs?.class === 'hovercard') {
+        // Extract text content properly
+        const getTextContent = (children: any[]): string => {
+          return children.map(child => {
+            if (typeof child === 'string') return child;
+            if (child.type === 'text') return child.data;
+            if (child.children) return getTextContent(child.children);
+            return '';
+          }).join('');
+        };
+
+        const content = getTextContent(domNode.children);
+        let hoverContent: React.ReactNode = "Hover card content";
+        if (content === "культуры изобилия") hoverContent = (
+          <div>
+            <p>Культура изобилия, или мышление изобилия. Полагает, что способности человека и ресурсы внешнего мира неограничены, и плюшек хватить всем, если мы будем себя нормально вести.</p>
+            <img src="/cornucopia.gif" alt="Рог изобилия" />
+          </div>
+        );
+        if (content === "has come") hoverContent = (
+          <div>
+            <img src="/good-news-everyone.gif" alt="Hemsworth delivers good news" />
+          </div>
+        );
+        if (content === "better, faster, and stronger") hoverContent = (
+          <div>
+            <img src="/daft-punk.gif" alt="Daft Punk" />
+          </div>
+        );
+        if (content === "момент настал") hoverContent = (
+          <div>
+            <img src="/good-news-everyone.gif" alt="Хемсворт из Футурамы сообщает вам хорошие новости" />
+          </div>
+        );
+
+        if (content === "второй ренессанс") hoverContent = (
+          <div>
+            <p>Нормально только, а не как в Аниматрице</p>
+            <img src="/animatrix.gif" alt="Аниматрица, гифка" />
+          </div>
+        );
+
+        if (domNode.children[0]?.type === 'tag') {
+          // link - need to parse the link properly
+          const linkElement = domToReact(domNode.children);
+          return (
+            <HoverCard>
+              <HoverCardTrigger asChild className="underline text-blue-300">{linkElement}</HoverCardTrigger>
+              <HoverCardContent side="top">{hoverContent}</HoverCardContent>
+            </HoverCard>
+          );
+        } else {
+          // text
+          return (
+            <HoverCard>
+              <HoverCardTrigger className="underline text-blue-300 inline-block p-0 h-auto bg-transparent border-none shadow-none hover:bg-transparent">
+                {content}
+              </HoverCardTrigger>
+              <HoverCardContent side="top">{hoverContent}</HoverCardContent>
+            </HoverCard>
+          );
+        }
+      }
+    }
+  };
 
   const switchLocale = (newLocale: string) => {
     console.log('Main content locale switch triggered:', newLocale);
@@ -124,15 +226,18 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
           </div>
           <Section>
             <h2 className="text-xl font-bold text-center">{t('aboutSection')}</h2>
-            <div className="text-pretty font-mono text-sm text-muted-foreground print:text-[12px]">
-              {actualResumeData.summary.map((paragraph: string, index: number) => (
-                <p
-                  key={index}
-                  className="mb-4"
-                  dangerouslySetInnerHTML={{ __html: paragraph }}
-                />
-              ))}
-            </div>
+            <TooltipProvider>
+              <div className="font-mono text-sm text-muted-foreground print:text-[12px]">
+                {actualResumeData.summary.map((paragraph: string, index: number) => (
+                  <div
+                    key={index}
+                    className="mb-4"
+                  >
+                    {parse(modifyParagraph(paragraph), parseOptions)}
+                  </div>
+                ))}
+              </div>
+            </TooltipProvider>
           </Section>
 
           <Section>
