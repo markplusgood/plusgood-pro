@@ -1,5 +1,8 @@
 {
   "RESUME_DATA": {
+    "aboutSection": "Обо мне",
+    "workExperienceSection": "Опыт работы",
+    "skillsSection": "Навыки",
     "name": "Марк Михалёв",
     "initials": "М.М.",
     "location": "Грузия, UTC+4",

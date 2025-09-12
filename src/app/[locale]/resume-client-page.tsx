@@ -123,7 +123,7 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
             <RabbitAnimation />
           </div>
           <Section>
-            <h2 className="text-xl font-bold text-center">About</h2>
+            <h2 className="text-xl font-bold text-center">{t('aboutSection')}</h2>
             <div className="text-pretty font-mono text-sm text-muted-foreground print:text-[12px]">
               {actualResumeData.summary.map((paragraph: string, index: number) => (
                 <p
@@ -136,7 +136,7 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
           </Section>
 
           <Section>
-            <h2 className="text-xl font-bold text-center">Work Experience</h2>
+            <h2 className="text-xl font-bold text-center">{t('workExperienceSection')}</h2>
             {actualResumeData.work.map((work: Work) => (
               <Card key={work.company} className="mt-4">
                 <CardHeader>
@@ -175,7 +175,7 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
           </Section>
 
           <Section>
-            <h2 className="text-xl font-bold text-center">Skills</h2>
+            <h2 className="text-xl font-bold text-center">{t('skillsSection')}</h2>
             <div className="flex flex-wrap justify-center gap-1 mt-4">
               {actualResumeData.skills.map((skill: string) => {
                 return (

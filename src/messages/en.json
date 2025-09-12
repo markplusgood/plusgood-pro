@@ -1,5 +1,8 @@
 {
   "RESUME_DATA": {
+    "aboutSection": "About Me",
+    "workExperienceSection": "Work Experience",
+    "skillsSection": "Skill Stack",
     "name": "Mark Mikhalev",
     "initials": "M.M.",
     "location": "Georgia, UTC+4",
