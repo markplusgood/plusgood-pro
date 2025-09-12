@@ -1,19 +1,23 @@
 {
   "RESUME_DATA": {
     "name": "Mark Mikhalev",
-    "initials": "MM",
+    "initials": "M.M.",
     "location": "Georgia, GET",
     "locationLink": "https://maps.app.goo.gl/KyTruQPXLKrH3yUj8",
     "about": "AI Automation Engineer | Customer Advocate | Team Lead",
     "summary": [
-      "I create work environments where agentic AI automations handle tedious tasks, and teams focus on the human side of work they actually enjoy.",
-      "As a generalist with a passion for tech, I acquired a diverse experience and skill set that enables me to benefit both digital and traditional projects — working with code and with people, fostering customer relations, managing hybrid teams, or building data-driven AI-enabled systems that lighten the load and boost teams' efficiency and well-being.",
-      "Managing people and processes with care, creating high-trust work environments that facilitate growth, and striving to deliver exceptional service — these have always been the focus of my work. These are my two cents on manifesting the culture of abundance."
+      "I create work environments where intelligent automation enables teams to focus on the work they can enjoy and thrive.",
+      "My diverse background provides me with a skill set that benefits both digital and traditional projects. I am equally comfortable working with code and with people, managing hybrid teams, and building data-driven AI-enabled systems that lighten the load and boost teams' efficiency and well-being.",
+      "Starting my path in HoReCa, I learned to manage teams of diverse backgrounds, resolve conflicts, and help people with a smile on my face under any circumstance. My passion for tech led me to IT, and the first opportunity to apply my skills came in with the content-farming boom. I started working as a copywriter for a local project with a distributed team and was quickly promoted to an editor, owning the entire SEO content production cycle.",
+      "After the project ended, I taught myself digital marketing. I did freelance, sharpening my skills, before joining Instaon as Customer Success Manager. This experience provided a chance to work with a LLM for digital ad creation and have a peek at the change that was coming to our workplace, before the public GPT release. Since then I have been waiting for the moment the AI becomes mature enough to transform the abundance culture from the sci-fi motif to a real promise. This moment has come. Today I apply agentic AI to drive teams’ growth and human success.",
+      "If you need someone autonomous, quick to spot areas for growth and act on them, you’re in the right place at the right time because I'm open to offers. It would be great to find a team of like-minded people to build long-term relationships with and, through little feats, score big wins. You can find an outline of my tech experience below, or download my CV here.",
+      "If any of that resonates with your wants and needs, and you want to offer me a role in your project, hit one of those contact buttons on the right to drop me a line or book a time on my calendar for a quick chat. I’ll be happy to hear from you and talk about things we can make better, faster, and stronger.",
+      "Does it feel like a good match with your wants and needs? Wanna talk or offer me a role in your project? Hit one of those contact buttons on the right to drop me a line or book a time on my calendar for a quick chat. I’ll be happy to hear from you and talk about things we can make better, faster, and stronger."
     ],
-    "avatarUrl": "https://raw.githubusercontent.com/markplusgood/plusgood.pro/main/src/images/avatar.jpeg",
-    "personalWebsiteUrl": "plusgood.pro",
+    "avatarUrl": "",
+    "personalWebsiteUrl": "plusgood.space",
     "contact": {
-      "email": "mark@plusgood.pro",
+      "email": "markplusgood@gmail.com",
       "tel": "https://t.me/markplusgood",
       "social": [
         {
@@ -34,7 +38,7 @@
       {
         "company": "NDA",
         "badges": [
-          "Remote"
+          ""
         ],
         "positions": [
           {
@@ -53,11 +57,11 @@
         "company": "FunnelFox",
         "link": "https://funnelfox.com/",
         "badges": [
-          "Remote"
+          ""
         ],
         "positions": [
           {
-            "title": "Tech Support Engineer at FunnelFox",
+            "title": "Tech Support Engineer",
             "start": "Dec 2024",
             "end": "May 2025",
             "description": [
@@ -65,7 +69,7 @@
               "Conducted in-depth technical investigations to resolve and escalate complex customer issues.",
               "Designed and implemented workflow automations that enhanced team performance.",
               "Reduced lost case instances to zero, strengthening client relationships.",
-              "-Co-developed support team workflows and established key performance indicators (KPIs) to track success.",
+              "Co-developed support team workflows and established key performance indicators (KPIs) to track performance and workload",
               "Maintained and improved product documentation."
             ]
           }
@@ -79,30 +83,30 @@
         ],
         "positions": [
           {
-            "title": "Customer support team lead",
-            "start": "Jul 2023",
+            "title": "Customer Support Team Lead",
+            "start": "Jun 2023",
             "end": "Oct 2023",
             "description": [
               "Led a global team of 10 technical and educational support agents, fostering a collaborative and high-performance culture.",
               "Ensured the hiring processes filled the team with desired talent.",
-              "Managed the selection and migration to a new software stack, streamlined cross-team data integration, and unlocked new opportunities for leveraging state-of-the-art tech for team efficiency and customer satisfaction."
+              "Managed the selection and migration to a new software stack, which allowed for streamlined cross-team data integration and unlocked new opportunities for leveraging the best tech on the market  for boosting  team efficiency and customer satisfaction."
             ]
           },
           {
-            "title": "Senior customer support agent",
+            "title": "Senior Customer Support Agent",
             "start": "Oct 2021",
-            "end": "Jul 2023",
+            "end": "Jun 2023",
             "description": [
               "Fostered team efficiency and user satisfaction by delivering exceptional technical and educational support and serving as a role model for colleagues, keeping their endorsement at 99%.",
               "Acted as a technical authority, providing expertise to colleagues and users, ensuring the team's adherence to company policies and standards.",
               "Provided continuous quality assurance for maintaining the service up to the company’s standards and developing the team’s talent.",
-              "Built and maintained a comprehensive support analytics system to track team performance, workload, and collect valuable UX insights for product teams.",
+              "Designed, built and maintained a comprehensive support analytics system to track team performance, workload, and collect valuable UX insights for product teams.",
               "Designed, built, and maintained robust processes and automations to ensure exceptional support, seamless inter-team collaboration, and team development.",
               "Served as the connecting point for cross-team collaborations and knowledge sharing."
             ]
           },
           {
-            "title": "Customer support agent",
+            "title": "Customer Support Agent",
             "start": "Oct 2020",
             "end": "Oct 2021",
             "description": [
@@ -116,11 +120,11 @@
         "company": "Instaon",
         "link": "https://instaon.io/en",
         "badges": [
-          "Remote"
+          ""
         ],
         "positions": [
           {
-            "title": "Customer success manager",
+            "title": "Customer Success Manager",
             "start": "Feb 2019",
             "end": "Oct 2019",
             "description": [
@@ -135,22 +139,22 @@
       {
         "company": "Freelance",
         "badges": [
-          "Remote"
+          ""
         ],
         "positions": [
           {
-            "title": "Digital marketing manager",
+            "title": "Digital Marketing Manager",
             "start": "Sept 2017",
             "end": "Oct 2019",
             "description": [
-              "Created and managed dozens of Google Ads and Yandex Ads campaigns, increasing client sales by an average of 45% while reducing marketing spend by up to 30% through improved copywriting, targeting, and bid optimization.",
-              "Provided digital marketing consulting to SMBs, conducting comprehensive audits and implementing conversion optimization strategies that improved campaign ROI by an average of 30%"
+              "Provided digital marketing consulting to SMBs, conducting comprehensive audits and implementing marketingstrategies that improved campaign ROI by an average of 55%.",
+              "Created and managed dozens of Google Ads and Yandex Ads campaigns, increasing client sales by an average of 25% while reducing marketing spend by up to 20% through improved copywriting, targeting, and conversion optimization strategies."
             ]
           },
           {
             "title": "Translator",
-            "start": "Sept 2017",
-            "end": "Oct 2019",
+            "start": "Sept 2016",
+            "end": "OcSeptt 2017",
             "description": [
               "Translated 500+ pages across English, Russian, and Spanish for international clients, handling diverse content from medical documentation and business plans to entertainment media like BBC's Top Gear, while maintaining cultural accuracy and brand voice consistency."
             ]
@@ -161,13 +165,13 @@
         "company": "Farbik",
         "link": "https://farbik.ru/",
         "badges": [
-          "Remote"
+          ""
         ],
         "positions": [
           {
-            "title": "Web content editor",
-            "start": "Jun 2013",
-            "end": "Apr 2016",
+            "title": "Web Content Editor",
+            "start": "May 2013",
+            "end": "Mar 2016",
             "description": [
               "Led a team of 20+ copywriters and graphic designers to deliver high-quality content that provided users with learning materials and veritable answers to their most asked questions, and drove company revenue.",
               "Owned full content lifecycle: from SEO-driven content planning through final editing and publication of more than 4000 articles.",
@@ -178,8 +182,9 @@
       }
     ],
     "skills": [
-      "Python",
+      "AI Automation",
       "Process Automation & RPA",
+      "Python",
       "Workflow Building",
       "Workflow Orchestration",
       "AI/LLM Integration",
@@ -197,6 +202,7 @@
       "Google Cloud Compute Engine",
       "Google Cloud APIs & Services",
       "Google Cloud IAM & Admin",
+      "IAM/RBAC",
       "Quality Assurance",
       "Automation Testing",
       "Performance Optimization",
@@ -211,7 +217,6 @@
       "CSS",
       "React",
       "Next.js",
-      "IAM/RBAC",
       "Data Analysis & Presentation",
       "A/B Testing & Experimentation",
       "Software Troubleshooting",
@@ -226,11 +231,19 @@
       "Multimedia Content Creation",
       "SEO Optimization",
       "Practical Optimism",
-      "Self-Directed Leadership",
+      "Autonomy",
       "Radical Candor",
       "Transparent Communication",
+      "Proactive Problem Resolution",
       "Solution-Oriented Leadership",
+      "Transformational Leadership",
+      "Transactional Leadership",
+      "Team Building",
+      "Team Development",
+      "Mentorship",
       "Cross-Cultural Communication",
+      "Conflict Resolution",
+      "Stress Management",
       "Psychological Safety Advocacy",
       "Inclusive Team Building",
       "Growth Mindset",
@@ -239,13 +252,9 @@
       "Stakeholder Management",
       "Business Communications",
       "Customer Feedback Analysis",
-      "Team Development",
       "Vendor Management",
       "Technical & Creative Writing",
       "Creative Production Management",
-      "Stress Management",
-      "Conflict Resolution",
-      "Proactive Problem-R  esolution",
       "Creative Content Production"
     ]
   }
