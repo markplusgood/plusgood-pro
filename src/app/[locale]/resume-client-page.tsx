@@ -14,6 +14,7 @@ import { useMounted } from "@/lib/hooks";
 import { useTheme } from "next-themes";
 import { GoogleTagManager } from '@next/third-parties/google';
 import { ThemeAwareHeart } from "@/components/ui/theme-aware-heart";
+import { ScrollToTopButton } from "@/components/ScrollToTopButton";
 import { useEffect } from "react";
 import { useTranslations } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
@@ -77,16 +78,17 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
     // Tooltips
     modified = modified.replace(/abundance culture/g, '<span class="tooltip">abundance culture</span>');
     modified = modified.replace(/БЯМ/g, '<span class="tooltip">БЯМ</span>');
+    modified = modified.replace(/культуры изобилия/g, '<span class="tooltip">культуры изобилия</span>');
+
     // Hover cards
-    modified = modified.replace(/культуры изобилия/g, '<span class="hovercard">культуры изобилия</span>');
     modified = modified.replace(/has come/g, '<span class="hovercard">has come</span>');
     modified = modified.replace(/better, faster, and stronger/g, '<span class="hovercard">better, faster, and stronger</span>');
     modified = modified.replace(/момент настал/g, '<span class="hovercard">момент настал</span>');
     modified = modified.replace(/второй ренессанс/g, '<span class="hovercard">второй ренессанс</span>');
     // Link hover cards
-    modified = modified.replace(/<a href="https:\/\/plusgood\.space"[^>]*>download my CV here<\/a>/g, '<span class="hovercard">$&</span>');
-    modified = modified.replace(/<a href="https:\/\/plusgood\.space"[^>]*>book a Calendly slot<\/a>/g, '<span class="hovercard">$&</span>');
-    modified = modified.replace(/<a href="https:\/\/plusgood\.space"[^>]*> скачать резюме здесь<\/a>/g, '<span class="hovercard">$&</span>');
+    modified = modified.replace(/<a href="https:\/\/plusgood\.space"[^>]*>\s*download my CV here\s*<\/a>/g, '<span class="hovercard">$&</span>');
+    modified = modified.replace(/<a href="https:\/\/plusgood\.space"[^>]*>\s*book a Calendly slot\s*<\/a>/g, '<span class="hovercard">$&</span>');
+    modified = modified.replace(/<a href="https:\/\/plusgood\.space"[^>]*>\s*скачать резюме здесь\s*<\/a>/g, '<span class="hovercard">$&</span>');
     return modified;
   };
 
@@ -95,8 +97,9 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
       if (domNode.name === 'span' && domNode.attribs?.class === 'tooltip') {
         const word = domNode.children[0].data;
         let content: React.ReactNode = "Tooltip content";
-        if (word === "abundance culture") content = "A culture of abundance is a mindset rooted in the belief that humans are not limited by our potential, nor by world resources. It contrasts with a scarcity mindset, which focuses on competition and fear, the basis for the zero-sum-game we currently play as a culture.";
+        if (word === "abundance culture") content = "A culture of abundance is a mindset rooted in the belief that humans are not limited by our potential, nor by world resources. It contrasts with a scarcity mindset, which focuses on competition and fear, the basis for the zero-sum-game we currently play as a culture. Also, a utopian state of humanity, where people live in joy and love, instead of quarreling over resources.";
         if (word === "БЯМ") content = "Большая Языковая Модель, англ. Large Language Model";
+        if (word === "культуры изобилия") content = "Убеждение, что ресурсы вселенной безграничны, и что плюшек хватит на всех, если мы будем себя нормально вести. В отличие от культуры дефицита, которая порождает страх и антагонизм, порождает веру в большое светлое будущее и помогает его манифестировать. Также утопическое состояние общества, в котором люди не грызутся за ресурсы и купаются в океянах любви.";
         return (
           <Tooltip>
             <TooltipTrigger asChild>
@@ -119,11 +122,6 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
 
         const content = getTextContent(domNode.children);
         let hoverContent: React.ReactNode = "Hover card content";
-        if (content === "культуры изобилия") hoverContent = (
-          <div>
-            <img src="/cornucopia.gif" alt="Рог изобилия" />
-          </div>
-        );
         if (content === "has come") hoverContent = (
           <div>
             <img src="/good-news-everyone.gif" alt="Hemsworth delivers good news" />
@@ -310,6 +308,7 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
         )}
       </div>
       <ThemeAwareHeart />
+      <ScrollToTopButton />
 
     </main >
 

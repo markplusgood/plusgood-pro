@@ -259,5 +259,8 @@
       "Creative Production Management",
       "Creative Content Production"
     ]
+  },
+  "SCROLL_TO_TOP": {
+    "tooltip": "Scroll to top"
   }
 }
