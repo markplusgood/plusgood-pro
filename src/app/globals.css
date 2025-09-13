@@ -1,11 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 41, 80% 96%;
-    --foreground: 221, 80%, 4%;
+    --background: 0 0% 98%;
+    --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
     --popover: 0 0% 100%;
@@ -32,8 +34,8 @@
   }
 
   .dark {
-    --background: 221, 80%, 4%;
-    --foreground: 41, 80%, 96%;
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
     --card: 0 0% 3.9%;
     --card-foreground: 0 0% 98%;
     --popover: 0 0% 3.9%;
@@ -107,6 +109,7 @@
   perspective: 500px;
   transform-style: preserve-3d;
   isolation: isolate;
+  border-radius: rounded-sm;
 }
 
 .contact-button:hover {
@@ -207,13 +210,21 @@
 }
 
 .skill-badge {
-  opacity: 0.66;
+  opacity: 0.85;
 }
 
-/* .skill-badge:hover {
-  background-image: linear-gradient(33deg, #fb2c36, #f54900, #ff8904, #ffb900, #ffdf20, #497d00, #9ae600, #00a63e, #002c22, #009966, #005f78, #1c398e, #00a6f4, #312c85, #4d179a, #9810fa, #e12afb, #e60076, #861043, #ec003f, #fb2c36);
+/*
+.skill-badge:hover {
+  background-image: linear-gradient(33deg, #f8204e, #f54900, #ffdf20, #9ae600, #ffffff, #00a63e, #00a6f4, #ffffff, #9810fa, #e12afb, #e60076, #ec003f, #fb2c36);
   background-size: 2000% 100%;
-  animation: gradient-scroll 10s linear infinite;
+  animation: gradient-scroll 8s linear infinite;
+}
+*/
+
+.skill-badge:hover {
+  background-image: linear-gradient(33deg, hsl(41, 80%, 96%), rgb(189, 188, 188), hsl(41, 80%, 96%));
+  background-size: 4000% 100%;
+  animation: gradient-scroll 4s linear infinite;
 }
 
 @keyframes gradient-scroll {
@@ -225,7 +236,7 @@
     background-position: 100% 50%;
   }
 }
-*/
+
 
 .normal-blend-mode {
   mix-blend-mode: normal;
@@ -248,8 +259,10 @@
 }
 
 @layer components {
-  .colored-bullet::marker {
+  .custom-bullet li::before {
+    content: "•";
     color: hsl(var(--foreground));
+    margin-right: 0.5rem;
   }
 }
 

@@ -82,10 +82,10 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
     modified = modified.replace(/has come/g, '<span class="hovercard">has come</span>');
     modified = modified.replace(/better, faster, and stronger/g, '<span class="hovercard">better, faster, and stronger</span>');
     modified = modified.replace(/момент настал/g, '<span class="hovercard">момент настал</span>');
-    modified = modified.replace(/хорошие новости/g, '<span class="hovercard">хорошие новости</span>');
     modified = modified.replace(/второй ренессанс/g, '<span class="hovercard">второй ренессанс</span>');
     // Link hover cards
     modified = modified.replace(/<a href="https:\/\/plusgood\.space"[^>]*>download my CV here<\/a>/g, '<span class="hovercard">$&</span>');
+    modified = modified.replace(/<a href="https:\/\/plusgood\.space"[^>]*>book a Calendly slot<\/a>/g, '<span class="hovercard">$&</span>');
     modified = modified.replace(/<a href="https:\/\/plusgood\.space"[^>]*> скачать резюме здесь<\/a>/g, '<span class="hovercard">$&</span>');
     return modified;
   };
@@ -100,9 +100,9 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
         return (
           <Tooltip>
             <TooltipTrigger asChild>
-              <span className="underline text-blue-300 inline-block">{word}</span>
+              <span className="underline decoration-dotted text-blue-300 inline-block indent-0">{word}</span>
             </TooltipTrigger>
-            <TooltipContent side="top">{content}</TooltipContent>
+            <TooltipContent side="top" className="max-w-[35vw] whitespace-normal">{content}</TooltipContent>
           </Tooltip>
         );
       }
@@ -121,7 +121,6 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
         let hoverContent: React.ReactNode = "Hover card content";
         if (content === "культуры изобилия") hoverContent = (
           <div>
-            <p>Культура изобилия, или мышление изобилия. Полагает, что способности человека и ресурсы внешнего мира неограничены, и плюшек хватить всем, если мы будем себя нормально вести.</p>
             <img src="/cornucopia.gif" alt="Рог изобилия" />
           </div>
         );
@@ -143,7 +142,6 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
 
         if (content === "второй ренессанс") hoverContent = (
           <div>
-            <p>Нормально только, а не как в Аниматрице</p>
             <img src="/animatrix.gif" alt="Аниматрица, гифка" />
           </div>
         );
@@ -153,7 +151,7 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
           const linkElement = domToReact(domNode.children);
           return (
             <HoverCard>
-              <HoverCardTrigger asChild className="underline text-blue-300">{linkElement}</HoverCardTrigger>
+              <HoverCardTrigger asChild className="underline decoration-dotted text-blue-300">{linkElement}</HoverCardTrigger>
               <HoverCardContent side="top">{hoverContent}</HoverCardContent>
             </HoverCard>
           );
@@ -161,7 +159,7 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
           // text
           return (
             <HoverCard>
-              <HoverCardTrigger className="underline text-blue-300 inline-block p-0 h-auto bg-transparent border-none shadow-none hover:bg-transparent">
+              <HoverCardTrigger className="underline decoration-dotted text-blue-300 inline-block p-0 h-auto bg-transparent border-none shadow-none hover:bg-transparent indent-0">
                 {content}
               </HoverCardTrigger>
               <HoverCardContent side="top">{hoverContent}</HoverCardContent>
@@ -187,12 +185,12 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
         <section className="mx-auto w-full max-w-2xl space-y-8 bg-background print:space-y-4">
           <div className="flex flex-col items-center justify-center">
             <div className="space-y-1.5 text-center">
-              <h1 className="text-2xl font-bold">{actualResumeData.name}</h1>
+              <h1 className="text-2xl font-bold font-jakarta">{actualResumeData.name}</h1>
               <SmartLineBreak
                 text={actualResumeData.about}
-                className="max-w-md text-pretty font-mono text-sm text-muted-foreground print:text-[12px]"
+                className="max-w-md text-pretty font-sans text-sm text-muted-foreground print:text-[12px]"
               />
-              <p className="max-w-md items-center text-pretty font-mono text-xs text-muted-foreground">
+              <p className="max-w-md items-center text-pretty font-sans text-xs text-muted-foreground">
                 <a
                   className="inline-flex gap-x-1.5 align-baseline leading-none hover:underline"
                   href={actualResumeData.locationLink}
@@ -204,7 +202,7 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
               </p>
 
 
-              <div className="hidden flex-col gap-x-1 font-mono text-sm text-muted-foreground print:flex print:text-[12px]">
+              <div className="hidden flex-col gap-x-1 font-sans text-sm text-muted-foreground print:flex print:text-[12px]">
                 {actualResumeData.contact.email ? (
                   <a href={`mailto:${actualResumeData.contact.email}`}>
                     <span className="underline">{actualResumeData.contact.email}</span>
@@ -225,9 +223,9 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
             <RabbitAnimation />
           </div>
           <Section>
-            <h2 className="text-xl font-bold text-center">{t('aboutSection')}</h2>
+            <h2 className="text-xl font-bold font-jakarta text-center">{t('aboutSection')}</h2>
             <TooltipProvider>
-              <div className="font-mono text-sm text-muted-foreground print:text-[12px]">
+              <div className="font-sans font-medium text-sm indent-6 tracking-wider text-muted-foreground print:text-[12px]">
                 {actualResumeData.summary.map((paragraph: string, index: number) => (
                   <div
                     key={index}
@@ -241,12 +239,12 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
           </Section>
 
           <Section>
-            <h2 className="text-xl font-bold text-center">{t('workExperienceSection')}</h2>
+            <h2 className="text-xl font-bold font-jakarta text-center">{t('workExperienceSection')}</h2>
             {actualResumeData.work.map((work: Work) => (
-              <Card key={work.company} className="mt-4">
+              <Card key={work.company} className="mt-4 bg-background">
                 <CardHeader>
                   <div className="flex items-center justify-between gap-x-2 text-base">
-                    <h3 className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none">
+                    <h3 className="inline-flex items-center justify-center gap-x-1 font-semibold font-jakarta leading-none">
                       {work.link ? (
                         <a className="inline-flex items-center gap-x-1 hover:underline" href={work.link} target="_blank">
                           {work.company}
@@ -260,16 +258,16 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
                 </CardHeader>
                 {work.positions.map((position: Position, index: number) => (
                   <CardContent key={index} className="mt-2">
-                    <h4 className="font-medium text-base text-foreground">{position.title}</h4>
+                    <h4 className="font-medium font-jakarta text-base text-foreground">{position.title}</h4>
                     <div className="text-xs tabular-nums text-muted-foreground">
                       {position.start} - {position.end ?? "Present"}
                     </div>
                     {typeof position.description === 'string' ? (
                       <p className="mt-2 text-sm">{position.description}</p>
                     ) : (
-                      <ul className="mt-2 text-sm list-disc list-inside colored-bullet">
+                      <ul className="mt-2 text-sm list-inside custom-bullet">
                         {position.description.map((item: string, index: number) => (
-                          <li key={index}>{item}</li>
+                          <li className="mb-2" key={index}>{item}</li>
                         ))}
                       </ul>
                     )}
@@ -280,11 +278,11 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
           </Section>
 
           <Section>
-            <h2 className="text-xl font-bold text-center">{t('skillsSection')}</h2>
+            <h2 className="text-xl font-bold font-jakarta text-center">{t('skillsSection')}</h2>
             <div className="flex flex-wrap justify-center gap-1 mt-4">
               {actualResumeData.skills.map((skill: string) => {
                 return (
-                  <Badge className="print:text-[10px] skill-badge" key={skill}>
+                  <Badge className="skill-badge font-medium" key={skill}>
                     {skill}
                   </Badge>
                 );
