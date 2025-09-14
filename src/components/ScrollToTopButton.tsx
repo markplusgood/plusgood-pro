@@ -86,11 +86,11 @@ export function ScrollToTopButton() {
                     <button
                         onClick={scrollToTop}
                         className={`fixed bottom-8 z-50 size-16 bg-transparent border-none cursor-pointer ${hasTransition ? 'transition-all duration-500 ease-in-out' : ''} hover:scale-110 flex items-center justify-center ${animationState === 'launching' ? 'transform -translate-y-[120vh] opacity-0' :
-                             animationState === 'resetting' ? 'transform translate-y-16 opacity-0' :
-                                 !isOnGround ? 'transform translate-y-16 opacity-0' :
-                                     !isVisible ? 'transform translate-y-16 opacity-0' :
-                                         'transform translate-y-0 opacity-100'
-                             }`}
+                            animationState === 'resetting' ? 'transform translate-y-16 opacity-0' :
+                                !isOnGround ? 'transform translate-y-16 opacity-0' :
+                                    !isVisible ? 'transform translate-y-16 opacity-0' :
+                                        'transform translate-y-0 opacity-100'
+                            }`}
                         style={{
                             right: 'max(1rem, calc((100vw - 48rem) / 2 - 4rem - 1rem))',
                             background: 'transparent',

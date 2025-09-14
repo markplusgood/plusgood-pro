@@ -222,9 +222,45 @@
 */
 
 .skill-badge:hover {
-  background-image: linear-gradient(33deg, hsl(41, 80%, 96%), rgb(189, 188, 188), hsl(41, 80%, 96%));
-  background-size: 4000% 100%;
-  animation: gradient-scroll 4s linear infinite;
+  background: linear-gradient(135deg,
+      #a8a8a8 0%,
+      /* Dark gray metal base */
+      #d4d4d4 25%,
+      /* Medium gray */
+      #f8f8f8 45%,
+      /* Light gray leading to glare */
+      #ffffff 47%,
+      /* Pure white glare center */
+      #f8f8f8 49%,
+      /* Light gray after glare */
+      #d4d4d4 75%,
+      /* Medium gray */
+      #a8a8a8 100%
+      /* Dark gray metal base */
+    );
+  background-size: 300% 100%;
+  animation: metal-glare 2.5s ease-in-out infinite;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    /* Top highlight */
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+    /* Bottom shadow */
+    0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Subtle drop shadow */
+}
+
+@keyframes metal-glare {
+  0% {
+    background-position: -100% 0;
+  }
+
+  50% {
+    background-position: 100% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
 }
 
 @keyframes gradient-scroll {

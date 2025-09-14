@@ -85,10 +85,12 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
     modified = modified.replace(/better, faster, and stronger/g, '<span class="hovercard">better, faster, and stronger</span>');
     modified = modified.replace(/момент настал/g, '<span class="hovercard">момент настал</span>');
     modified = modified.replace(/второй ренессанс/g, '<span class="hovercard">второй ренессанс</span>');
+    modified = modified.replace(/second renaissance/g, '<span class="hovercard">second renaissance</span>');
     // Link hover cards
     modified = modified.replace(/<a href="https:\/\/plusgood\.space"[^>]*>\s*download my CV here\s*<\/a>/g, '<span class="hovercard">$&</span>');
     modified = modified.replace(/<a href="https:\/\/plusgood\.space"[^>]*>\s*book a Calendly slot\s*<\/a>/g, '<span class="hovercard">$&</span>');
-    modified = modified.replace(/<a href="https:\/\/plusgood\.space"[^>]*>\s*скачать резюме здесь\s*<\/a>/g, '<span class="hovercard">$&</span>');
+    modified = modified.replace(/<a href="https:\/\/plusgood\.space"[^>]*>\s*бронируйте созвон в Calendly\s*<\/a>/g, '<span class="hovercard">$&</span>');
+    modified = modified.replace(/<a href="https:\/\/plusgood\.space"[^>]*>\s*скачать здесь\s*<\/a>/g, '<span class="hovercard">$&</span>');
     return modified;
   };
 
@@ -122,16 +124,19 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
 
         const content = getTextContent(domNode.children);
         let hoverContent: React.ReactNode = "Hover card content";
+
         if (content === "has come") hoverContent = (
           <div>
             <img src="/good-news-everyone.gif" alt="Hemsworth delivers good news" />
           </div>
         );
+
         if (content === "better, faster, and stronger") hoverContent = (
           <div>
             <img src="/daft-punk.gif" alt="Daft Punk" />
           </div>
         );
+
         if (content === "момент настал") hoverContent = (
           <div>
             <img src="/good-news-everyone.gif" alt="Хемсворт из Футурамы сообщает вам хорошие новости" />
@@ -140,7 +145,13 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
 
         if (content === "второй ренессанс") hoverContent = (
           <div>
-            <img src="/animatrix.gif" alt="Аниматрица, гифка" />
+            <img src="/animatrix-ru.gif" alt="Аниматрица, гифка" />
+          </div>
+        );
+
+        if (content === "second renaissance") hoverContent = (
+          <div>
+            <img src="/animatrix-en.gif" alt="Animatrix GIF" />
           </div>
         );
 
