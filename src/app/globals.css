@@ -221,32 +221,62 @@
 }
 */
 
+/* Light theme (default) - should have light colors with white glare */
 .skill-badge:hover {
   background: linear-gradient(135deg,
-      #a8a8a8 0%,
-      /* Dark gray metal base */
+      #b8b7b7 0%,
+      /* Light gray metal base */
       #d4d4d4 25%,
       /* Medium gray */
       #f8f8f8 45%,
       /* Light gray leading to glare */
       #ffffff 47%,
-      /* Pure white glare center */
+      /* Pure WHITE glare center */
       #f8f8f8 49%,
       /* Light gray after glare */
       #d4d4d4 75%,
       /* Medium gray */
-      #a8a8a8 100%
-      /* Dark gray metal base */
+      #c2bfbf 100%
+      /* Light gray metal base */
     );
   background-size: 300% 100%;
   animation: metal-glare 2.5s ease-in-out infinite;
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.3),
-    /* Top highlight */
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    /* Bright top highlight */
     inset 0 -1px 0 rgba(0, 0, 0, 0.2),
-    /* Bottom shadow */
+    /* Dark bottom shadow */
     0 2px 4px rgba(0, 0, 0, 0.1);
   /* Subtle drop shadow */
+}
+
+/* Dark theme - should have darker colors with bright glare */
+.dark .skill-badge:hover {
+  background: linear-gradient(135deg,
+      #9c9c9c 0%,
+      /* Dark gray metal base */
+      #cccccc 25%,
+      /* Medium dark gray */
+      #c9c9c9 45%,
+      /* Lighter gray leading to glare */
+      #ffffff 47%,
+      /* Pure WHITE glare center (still white!) */
+      #cccccc 49%,
+      /* Lighter gray after glare */
+      #9c9c9c 75%,
+      /* Medium dark gray */
+      #aaaaaa 100%
+      /* Dark gray metal base */
+    );
+  background-size: 400% 100%;
+  animation: metal-glare 2s ease-in-out infinite;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    /* Subtle top highlight */
+    inset 0 -1px 0 rgba(0, 0, 0, 0.4),
+    /* Strong bottom shadow */
+    0 2px 4px rgba(0, 0, 0, 0.2);
+  /* Stronger drop shadow */
 }
 
 @keyframes metal-glare {
