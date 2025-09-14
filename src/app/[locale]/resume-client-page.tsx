@@ -86,11 +86,13 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
     modified = modified.replace(/момент настал/g, '<span class="hovercard">момент настал</span>');
     modified = modified.replace(/второй ренессанс/g, '<span class="hovercard">второй ренессанс</span>');
     modified = modified.replace(/second renaissance/g, '<span class="hovercard">second renaissance</span>');
-    // Link hover cards
-    modified = modified.replace(/<a href="https:\/\/plusgood\.space"[^>]*>\s*download my CV here\s*<\/a>/g, '<span class="hovercard">$&</span>');
-    modified = modified.replace(/<a href="https:\/\/plusgood\.space"[^>]*>\s*book a Calendly slot\s*<\/a>/g, '<span class="hovercard">$&</span>');
-    modified = modified.replace(/<a href="https:\/\/plusgood\.space"[^>]*>\s*бронируйте созвон в Calendly\s*<\/a>/g, '<span class="hovercard">$&</span>');
-    modified = modified.replace(/<a href="https:\/\/plusgood\.space"[^>]*>\s*скачать здесь\s*<\/a>/g, '<span class="hovercard">$&</span>');
+
+    // Make text strings into inline URLs
+    modified = modified.replace(/download my CV here/g, '<a href="#" target="_blank" rel="nofollow" class="underline text-blue-300">download my CV here</a>');
+    modified = modified.replace(/book a Calendly slot/g, '<a href="https://calendly.com/markplusgood/15min-chat" target="_blank" rel="nofollow" class="underline text-blue-300">book a Calendly slot</a>');
+    modified = modified.replace(/бронируйте созвон в Calendly/g, '<a href="https://calendly.com/markplusgood/15min-chat" target="_blank" rel="nofollow" class="underline text-blue-300">бронируйте созвон в Calendly</a>');
+    modified = modified.replace(/скачать здесь/g, '<a href="#" target="_blank" rel="nofollow" class="underline text-blue-300">скачать здесь</a>');
+
     return modified;
   };
 
@@ -154,7 +156,12 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
             <img src="/animatrix-en.gif" alt="Animatrix GIF" />
           </div>
         );
-
+        /*
+                if (content === "download my CV here") hoverContent = "Download my CV from plusgood.space";
+                if (content === "book a Calendly slot") hoverContent = "Book a 15-minute chat with me on Calendly";
+                if (content === "бронируйте созвон в Calendly") hoverContent = "Забронируйте 15-минутный созвон со мной в Calendly";
+                if (content === "скачать здесь") hoverContent = "Скачать мое резюме с plusgood.space";
+        */
         if (domNode.children[0]?.type === 'tag') {
           // link - need to parse the link properly
           const linkElement = domToReact(domNode.children);
