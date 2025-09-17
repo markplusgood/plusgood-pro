@@ -372,6 +372,9 @@
   animation: heartbeat 0.821s infinite;
 }
 
+.heartbeat:hover {
+  animation-play-state: paused;
+}
 
 .normal-blend-mode {
   mix-blend-mode: normal;

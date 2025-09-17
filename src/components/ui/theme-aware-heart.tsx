@@ -15,7 +15,7 @@ export function ThemeAwareHeart() {
   return (
     <div className="flex justify-center mt-12">
       <Link href="/mamemes" className="text-inherit hover:text-inherit inline-block">
-        <span className="heartbeat inline-block" style={{ display: 'inline-block', animation: 'heartbeat 0.821s infinite' }}>
+        <span className="heartbeat inline-block" style={{ display: 'inline-block' }}>
           {resolvedTheme === 'dark' ? '🤍' : '🖤'}
         </span>
       </Link>
