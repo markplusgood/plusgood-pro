@@ -36,7 +36,7 @@ export default function NotFound() {
         </p>
         <Button
           asChild
-          className={`main-page-button font-medium ${locale === 'ru' ? 'amazing-slab-fallback' : ''}`}
+          className={`main-page-button ${locale === 'ru' ? 'amazing-slab-fallback' : ''}`}
           style={{
             fontFamily: locale === 'ru'
               ? 'Amazing Slab Black Trial, Impact, Arial Black, Helvetica Bold, sans-serif'

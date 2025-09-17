@@ -254,14 +254,6 @@
   opacity: 0.85;
 }
 
-/*
-.skill-badge:hover {
-  background-image: linear-gradient(33deg, #f8204e, #f54900, #ffdf20, #9ae600, #ffffff, #00a63e, #00a6f4, #ffffff, #9810fa, #e12afb, #e60076, #ec003f, #fb2c36);
-  background-size: 2000% 100%;
-  animation: gradient-scroll 8s linear infinite;
-}
-*/
-
 /* Light theme (default) - should have light colors with white glare */
 .skill-badge:hover {
   background: linear-gradient(135deg,
