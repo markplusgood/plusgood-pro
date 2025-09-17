@@ -10,7 +10,7 @@
 
 @font-face {
   font-family: 'Amazing Slab Black Trial';
-  src: url('/Amazing-Slab-Black-trial') format('truetype');
+  src: url('/Amazing-Slab-Black-trial.ttf') format('truetype');
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -354,15 +354,19 @@
   0% {
     transform: scale(1);
   }
+
   10% {
     transform: scale(1.1);
   }
+
   20% {
     transform: scale(1);
   }
+
   60% {
     transform: scale(1.17);
   }
+
   62% {
     transform: scale(1);
   }
