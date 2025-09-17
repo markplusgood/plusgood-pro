@@ -83,6 +83,7 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
     // Hover cards
     modified = modified.replace(/has come/g, '<span class="hovercard">has come</span>');
     modified = modified.replace(/better, faster, and stronger/g, '<span class="hovercard">better, faster, and stronger</span>');
+    modified = modified.replace(/здоровее, сильнее и эффективнее/g, '<span class="hovercard">здоровее, сильнее и эффективнее</span>');
     modified = modified.replace(/момент настал/g, '<span class="hovercard">момент настал</span>');
     modified = modified.replace(/второй ренессанс/g, '<span class="hovercard">второй ренессанс</span>');
     modified = modified.replace(/second renaissance/g, '<span class="hovercard">second renaissance</span>');
@@ -134,6 +135,12 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
         );
 
         if (content === "better, faster, and stronger") hoverContent = (
+          <div>
+            <img src="/daft-punk.gif" alt="Daft Punk" />
+          </div>
+        );
+
+        if (content === "здоровее, сильнее и эффективнее") hoverContent = (
           <div>
             <img src="/daft-punk.gif" alt="Daft Punk" />
           </div>
@@ -234,7 +241,16 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
             <RabbitAnimation />
           </div>
           <Section>
-            <h2 className="text-xl font-bold font-jakarta text-center">{t('aboutSection')}</h2>
+            <HoverCard>
+              <HoverCardTrigger asChild>
+                <h2 className="text-xl font-bold font-jakarta text-center cursor-pointer">{t('aboutSection')}</h2>
+              </HoverCardTrigger>
+              <HoverCardContent side="top">
+                <div>
+                  <img src="/silly-creature-serious-quest.gif" alt="Silly creature serious quest" />
+                </div>
+              </HoverCardContent>
+            </HoverCard>
             <TooltipProvider>
               <div className="font-sans font-medium text-sm indent-6 tracking-wider text-muted-foreground print:text-[12px]">
                 {actualResumeData.summary.map((paragraph: string, index: number) => (
@@ -270,15 +286,15 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
                 {work.positions.map((position: Position, index: number) => (
                   <CardContent key={index} className="mt-2">
                     <h4 className="font-medium font-jakarta text-base text-foreground">{position.title}</h4>
-                    <div className="text-xs tabular-nums text-muted-foreground">
+                    <div className="text-xs tabular-nums text-foreground font-extralight">
                       {position.start} - {position.end ?? "Present"}
                     </div>
                     {typeof position.description === 'string' ? (
-                      <p className="mt-2 text-sm">{position.description}</p>
+                      <p className="mt-2 text-sm font-medium">{position.description}</p>
                     ) : (
-                      <ul className="mt-2 text-sm list-inside custom-bullet">
+                      <ul className="mt-2 text-sm font-medium list-inside custom-bullet">
                         {position.description.map((item: string, index: number) => (
-                          <li className="mb-2" key={index}>{item}</li>
+                          <li className="mb-1" key={index}>{item}</li>
                         ))}
                       </ul>
                     )}

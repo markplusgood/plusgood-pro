@@ -224,30 +224,36 @@
 /* Light theme (default) - should have light colors with white glare */
 .skill-badge:hover {
   background: linear-gradient(135deg,
-      #b8b7b7 0%,
-      /* Light gray metal base */
-      #d4d4d4 25%,
-      /* Medium gray */
-      #f8f8f8 45%,
-      /* Light gray leading to glare */
-      #ffffff 47%,
-      /* Pure WHITE glare center */
-      #f8f8f8 49%,
-      /* Light gray after glare */
-      #d4d4d4 75%,
-      /* Medium gray */
-      #c2bfbf 100%
-      /* Light gray metal base */
+      #2a2a2a 0%,
+      /* Dark base - good contrast for light text */
+      #1a1a1a 20%,
+      /* Darker section */
+      #404040 35%,
+      /* Medium dark leading to glare */
+      #888888 47%,
+      /* Thin medium glare strip */
+      #cccccc 49%,
+      /* Thin bright glare strip */
+      #888888 51%,
+      /* Thin medium glare strip */
+      #404040 65%,
+      /* Medium dark after glare */
+      #1a1a1a 80%,
+      /* Darker section */
+      #2a2a2a 100%
+      /* Dark base */
     );
-  background-size: 300% 100%;
+  background-size: 400% 100%;
   animation: metal-glare 2.5s ease-in-out infinite;
+  color: #f5f5f5;
+  /* Ensure text stays light/readable */
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.4),
-    /* Bright top highlight */
-    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
-    /* Dark bottom shadow */
-    0 2px 4px rgba(0, 0, 0, 0.1);
-  /* Subtle drop shadow */
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    /* Subtle top highlight */
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    /* Strong bottom shadow */
+    0 2px 4px rgba(0, 0, 0, 0.15);
+  /* Drop shadow */
 }
 
 /* Dark theme - should have darker colors with bright glare */

@@ -44,7 +44,7 @@ export const getResumeData = async (locale: string) => {
       "",
     personalWebsiteUrl: "plusgood.space",
     contact: {
-      email: "mark@plusgood.pro",
+      email: "mark@plusgood.space",
       tel: "https://t.me/markplusgood",
       download: "",
       social: [
