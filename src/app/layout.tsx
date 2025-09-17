@@ -4,6 +4,7 @@ import "./globals.css";
 import { MobileBarProvider } from "@/components/MobileBarContext";
 import { PersistentMobileBar } from "@/components/PersistentMobileBar";
 import { Providers } from "@/components/providers";
+import { GoogleTagManager } from '@next/third-parties/google';
 
 const inter = Inter({
     subsets: ["latin"],
@@ -25,6 +26,7 @@ export default function RootLayout({
     return (
         <html className={inter.className} suppressHydrationWarning>
             <body suppressHydrationWarning>
+                <GoogleTagManager gtmId="G-PHBMXCD0E6" />
                 <Providers>
                     <MobileBarProvider>
                         {children}

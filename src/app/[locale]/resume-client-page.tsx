@@ -12,7 +12,6 @@ import { GlobeIcon, Link, GripVertical } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useMounted } from "@/lib/hooks";
 import { useTheme } from "next-themes";
-import { GoogleTagManager } from '@next/third-parties/google';
 import { ThemeAwareHeart } from "@/components/ui/theme-aware-heart";
 import { ScrollToTopButton } from "@/components/ScrollToTopButton";
 import { useEffect } from "react";
@@ -319,7 +318,6 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
 
         </section>
 
-        <GoogleTagManager gtmId="G-PHBMXCD0E6" />
       </div >
 
       {/* Responsive button column - hidden on small screens */}

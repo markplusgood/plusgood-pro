@@ -6,8 +6,6 @@ import { getResumeData } from "@/data/resume-data";
 import { DataProvider } from "@/components/DataProvider";
 
 import React from "react";
-import favicon from "../favicon.png";
-import appleIcon from "../apple-icon.png";
 
 export async function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
@@ -17,8 +15,8 @@ export const metadata: Metadata = {
   title: "Glad you stopped by 🎉",
   description: "Mark's profile page",
   icons: {
-    icon: favicon.src,
-    apple: appleIcon.src,
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
   robots: {
     index: false,

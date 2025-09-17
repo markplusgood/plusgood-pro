@@ -278,5 +278,10 @@
   },
   "SCROLL_TO_TOP": {
     "tooltip": "Scroll to top"
+  },
+  "NOT_FOUND": {
+    "title": "404 - Page Not Found",
+    "description": "Oops! The page you're looking for doesn't exist.",
+    "button": "MAIN PAGE"
   }
 }

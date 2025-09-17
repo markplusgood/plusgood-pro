@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useTheme } from "next-themes";
 import { useMounted } from "@/lib/hooks";
 
@@ -12,37 +13,12 @@ export function ThemeAwareHeart() {
   }
 
   return (
-    <>
-      <style>
-        {`
-          @keyframes heartbeat {
-            0%, {
-              transform: scale(1);
-            }
-            10% {
-              transform: scale(1.1);
-            }
-
-            20% {
-              transform: scale(1);
-            }
-
-            60% {
-              transform: scale(1.17);
-            }
-            62% {
-              transform: scale(1);
-            }
-          }
-
-          .heartbeat {
-            animation: heartbeat 0.821s infinite;
-          }
-        `}
-      </style>
-      <div className="flex justify-center mt-12">
-        <p className="heartbeat">{resolvedTheme === 'dark' ? '🤍' : '🖤'}</p>
-      </div>
-    </>
+    <div className="flex justify-center mt-12">
+      <Link href="/mamemes" className="text-inherit hover:text-inherit inline-block">
+        <span className="heartbeat inline-block" style={{ display: 'inline-block', animation: 'heartbeat 0.821s infinite' }}>
+          {resolvedTheme === 'dark' ? '🤍' : '🖤'}
+        </span>
+      </Link>
+    </div>
   );
 }
