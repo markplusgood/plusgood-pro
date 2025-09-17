@@ -69,15 +69,15 @@ export default function AsciiAnimation404() {
 
   const processedFrame = Array.isArray(frames[currentFrame])
     ? frames[currentFrame]
-        .filter((line, index) => index % 2 === 0) // Take every other line to reduce height
-        .map(line => line.replace(/(.{2})/g, '$1')) // Keep all characters but could reduce if needed
-        .join('\n')
+      .filter((line, index) => index % 2 === 0) // Take every other line to reduce height
+      .map(line => line.replace(/(.{2})/g, '$1')) // Keep all characters but could reduce if needed
+      .join('\n')
     : frames[currentFrame];
 
   return (
-    <div className="flex items-center justify-center w-full h-full p-2">
+    <div className="flex items-center justify-center w-full h-full">
       <div
-        className="font-mono p-2 overflow-auto"
+        className="font-mono overflow-auto"
         style={{
           fontSize: 'clamp(2px, 0.5vw, 4px)',
           lineHeight: 1.0,
@@ -85,8 +85,8 @@ export default function AsciiAnimation404() {
           maxHeight: '95vh',
           minWidth: '200px',
           minHeight: '200px',
-          backgroundColor: isLightTheme ? 'hsl(0, 0%, 100%)' : 'hsl(0, 0%, 0%)',
-          color: isLightTheme ? 'hsl(0, 0%, 0%)' : 'hsl(0, 0%, 100%)'
+          backgroundColor: 'hsl(240, 10%, 3.9%)',
+          color: isLightTheme ? 'hsl(0, 0%, 100%)' : 'hsl(0, 0%, 100%)'
         }}
         suppressHydrationWarning
       >
