@@ -98,7 +98,7 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
     // Hover cards
     modified = modified.replace(/has come/g, '<span class="hovercard">has come</span>');
     modified = modified.replace(/better, faster, and stronger/g, '<span class="hovercard">better, faster, and stronger</span>');
-    modified = modified.replace(/здоровее, сильнее и эффективнее/g, '<span class="hovercard">здоровее, сильнее и эффективнее</span>');
+    modified = modified.replace(/лучше, быстрее, сильнее/g, '<span class="hovercard">лучше, быстрее, сильнее</span > ');
     modified = modified.replace(/момент настал/g, '<span class="hovercard">момент настал</span>');
     modified = modified.replace(/второй ренессанс/g, '<span class="hovercard">второй ренессанс</span>');
     modified = modified.replace(/second renaissance/g, '<span class="hovercard">second renaissance</span>');
@@ -166,7 +166,7 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
           </div>
         );
 
-        if (content === "здоровее, сильнее и эффективнее") hoverContent = (
+        if (content === "лучше, быстрее, сильнее") hoverContent = (
           <div>
             <img src="/daft-punk.gif" alt="Daft Punk" />
           </div>
