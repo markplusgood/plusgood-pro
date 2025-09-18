@@ -5,9 +5,83 @@ import * as HoverCardPrimitive from "@radix-ui/react-hover-card"
 
 import { cn } from "@/lib/utils"
 
-const HoverCard = HoverCardPrimitive.Root
+const HoverCardContext = React.createContext<{
+  isTouchDevice: boolean
+  isOpen: boolean
+  setIsOpen: (open: boolean) => void
+} | null>(null)
 
-const HoverCardTrigger = HoverCardPrimitive.Trigger
+const HoverCard = React.forwardRef<
+  React.ElementRef<typeof HoverCardPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof HoverCardPrimitive.Root>
+>(({ children, ...props }, ref) => {
+  const [isOpen, setIsOpen] = React.useState(false)
+  const [isTouchDevice, setIsTouchDevice] = React.useState(false)
+
+  React.useEffect(() => {
+    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0)
+  }, [])
+
+  return (
+    <HoverCardContext.Provider value={{ isTouchDevice, isOpen, setIsOpen }}>
+      <HoverCardPrimitive.Root
+        ref={ref}
+        open={isOpen}
+        onOpenChange={setIsOpen}
+        {...props}
+      >
+        {children}
+      </HoverCardPrimitive.Root>
+    </HoverCardContext.Provider>
+  )
+})
+HoverCard.displayName = HoverCardPrimitive.Root.displayName
+
+const HoverCardTrigger = React.forwardRef<
+  React.ElementRef<typeof HoverCardPrimitive.Trigger>,
+  React.ComponentPropsWithoutRef<typeof HoverCardPrimitive.Trigger>
+>(({ className, onClick, onMouseEnter, onMouseLeave, ...props }, ref) => {
+  const context = React.useContext(HoverCardContext)
+
+  if (!context) {
+    return <HoverCardPrimitive.Trigger ref={ref} className={className} {...props} />
+  }
+
+  const { isTouchDevice, setIsOpen } = context
+
+  const handleClick = React.useCallback((e: React.MouseEvent) => {
+    if (isTouchDevice) {
+      setIsOpen(prev => !prev)
+    }
+    onClick?.(e)
+  }, [isTouchDevice, setIsOpen, onClick])
+
+  const handleMouseEnter = React.useCallback((e: React.MouseEvent) => {
+    if (!isTouchDevice) {
+      setIsOpen(true)
+    }
+    onMouseEnter?.(e)
+  }, [isTouchDevice, setIsOpen, onMouseEnter])
+
+  const handleMouseLeave = React.useCallback((e: React.MouseEvent) => {
+    if (!isTouchDevice) {
+      setIsOpen(false)
+    }
+    onMouseLeave?.(e)
+  }, [isTouchDevice, setIsOpen, onMouseLeave])
+
+  return (
+    <HoverCardPrimitive.Trigger
+      ref={ref}
+      className={cn(isTouchDevice && "cursor-pointer", className)}
+      onClick={handleClick}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      {...props}
+    />
+  )
+})
+HoverCardTrigger.displayName = HoverCardPrimitive.Trigger.displayName
 
 const HoverCardContent = React.forwardRef<
   React.ElementRef<typeof HoverCardPrimitive.Content>,

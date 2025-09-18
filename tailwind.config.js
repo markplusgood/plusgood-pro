@@ -18,6 +18,10 @@ module.exports = {
         "2xl": "1400px",
       },
     },
+    screens: {
+      'xs': '577px',
+      'custom': '903px',
+    },
     extend: {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],

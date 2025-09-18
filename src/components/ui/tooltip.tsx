@@ -7,9 +7,83 @@ import { cn } from "@/lib/utils"
 
 const TooltipProvider = TooltipPrimitive.Provider
 
-const Tooltip = TooltipPrimitive.Root
+const TooltipContext = React.createContext<{
+  isTouchDevice: boolean
+  isOpen: boolean
+  setIsOpen: (open: boolean) => void
+} | null>(null)
 
-const TooltipTrigger = TooltipPrimitive.Trigger
+const Tooltip = React.forwardRef<
+  React.ElementRef<typeof TooltipPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Root>
+>(({ children, ...props }, ref) => {
+  const [isOpen, setIsOpen] = React.useState(false)
+  const [isTouchDevice, setIsTouchDevice] = React.useState(false)
+
+  React.useEffect(() => {
+    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0)
+  }, [])
+
+  return (
+    <TooltipContext.Provider value={{ isTouchDevice, isOpen, setIsOpen }}>
+      <TooltipPrimitive.Root
+        ref={ref}
+        open={isOpen}
+        onOpenChange={setIsOpen}
+        {...props}
+      >
+        {children}
+      </TooltipPrimitive.Root>
+    </TooltipContext.Provider>
+  )
+})
+Tooltip.displayName = TooltipPrimitive.Root.displayName
+
+const TooltipTrigger = React.forwardRef<
+  React.ElementRef<typeof TooltipPrimitive.Trigger>,
+  React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Trigger>
+>(({ className, onClick, onMouseEnter, onMouseLeave, ...props }, ref) => {
+  const context = React.useContext(TooltipContext)
+
+  if (!context) {
+    return <TooltipPrimitive.Trigger ref={ref} className={className} {...props} />
+  }
+
+  const { isTouchDevice, setIsOpen } = context
+
+  const handleClick = React.useCallback((e: React.MouseEvent) => {
+    if (isTouchDevice) {
+      setIsOpen(prev => !prev)
+    }
+    onClick?.(e)
+  }, [isTouchDevice, setIsOpen, onClick])
+
+  const handleMouseEnter = React.useCallback((e: React.MouseEvent) => {
+    if (!isTouchDevice) {
+      setIsOpen(true)
+    }
+    onMouseEnter?.(e)
+  }, [isTouchDevice, setIsOpen, onMouseEnter])
+
+  const handleMouseLeave = React.useCallback((e: React.MouseEvent) => {
+    if (!isTouchDevice) {
+      setIsOpen(false)
+    }
+    onMouseLeave?.(e)
+  }, [isTouchDevice, setIsOpen, onMouseLeave])
+
+  return (
+    <TooltipPrimitive.Trigger
+      ref={ref}
+      className={cn(isTouchDevice && "cursor-pointer", className)}
+      onClick={handleClick}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      {...props}
+    />
+  )
+})
+TooltipTrigger.displayName = TooltipPrimitive.Trigger.displayName
 
 const TooltipContent = React.forwardRef<
   React.ElementRef<typeof TooltipPrimitive.Content>,

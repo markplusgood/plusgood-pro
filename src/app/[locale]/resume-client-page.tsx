@@ -97,7 +97,7 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
 
     // Hover cards
     modified = modified.replace(/has come/g, '<span class="hovercard">has come</span>');
-    modified = modified.replace(/better, faster, and stronger/g, '<span class="hovercard">better, faster, and stronger</span>');
+    modified = modified.replace(/stronger/g, '<span class="hovercard">stronger</span>');
     modified = modified.replace(/лучше, быстрее, сильнее/g, '<span class="hovercard">лучше, быстрее, сильнее</span > ');
     modified = modified.replace(/момент настал/g, '<span class="hovercard">момент настал</span>');
     modified = modified.replace(/второй ренессанс/g, '<span class="hovercard">второй ренессанс</span>');
@@ -136,7 +136,7 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
             <TooltipTrigger asChild>
               <span className="underline decoration-dotted text-blue-300 inline-block indent-0">{word}</span>
             </TooltipTrigger>
-            <TooltipContent side="top" className="max-w-[35vw] whitespace-normal">{content}</TooltipContent>
+            <TooltipContent side="top" className="max-w-[calc(100vw-8rem)] xs:max-w-[50vw] custom:max-w-[35vw] whitespace-normal">{content}</TooltipContent>
           </Tooltip>
         );
       }
@@ -160,7 +160,7 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
           </div>
         );
 
-        if (content === "better, faster, and stronger") hoverContent = (
+        if (content === "stronger") hoverContent = (
           <div>
             <img src="/daft-punk.gif" alt="Daft Punk" />
           </div>
