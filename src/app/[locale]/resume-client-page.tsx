@@ -105,13 +105,13 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
 
     // Hover cards for links
     modified = modified.replace(/download my CV here/g, '<span class="hovercard">download my CV here</span>');
-    modified = modified.replace(/скачать здесь/g, '<span class="hovercard">скачать здесь</span>');
+    modified = modified.replace(/здесь/g, '<span class="hovercard">здесь</span>');
     modified = modified.replace(/book a Calendly slot/g, '<span class="hovercard">book a Calendly slot</span>');
     modified = modified.replace(/бронируйте созвон в Calendly/g, '<span class="hovercard">бронируйте созвон в Calendly</span>');
 
     // Make text strings into inline URLs
     modified = modified.replace(/download my CV here/g, '<Obfuscate href="public/Mark-Mikhalev-CV-En.pdf" target="_blank" rel="nofollow" class="underline text-blue-300" style="direction: ltr;">download my CV here</Obfuscate>');
-    modified = modified.replace(/скачать здесь/g, '<Obfuscate href="public/Mark-Mikhalev-CV-Ru.pdf" target="_blank" rel="nofollow" class="underline text-blue-300" style="direction: ltr;">скачать здесь</Obfuscate>');
+    modified = modified.replace(/здесь/g, '<Obfuscate href="public/Mark-Mikhalev-CV-Ru.pdf" target="_blank" rel="nofollow" class="underline text-blue-300" style="direction: ltr;">здесь</Obfuscate>');
     modified = modified.replace(/book a Calendly slot/g, '<Obfuscate href="https://calendly.com/markplusgood/15min-chat" target="_blank" rel="nofollow" class="underline text-blue-300" style="direction: ltr;">book a Calendly slot</Obfuscate>');
     modified = modified.replace(/бронируйте созвон в Calendly/g, '<Obfuscate href="https://calendly.com/markplusgood/15min-chat" target="_blank" rel="nofollow" class="underline text-blue-300" style="direction: ltr;">бронируйте созвон в Calendly</Obfuscate>');
 
@@ -191,16 +191,18 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
         );
 
         if (content === "download my CV here") hoverContent = (
-          <div>
-            <p><a href="public/Mark-Mikhalev-CV-Ru.pdf">Или скачать русскую версию</a></p>
+          <div className="indent-0">
+            <p className="m-0"><a href="public/Mark-Mikhalev-CV-Ru.pdf" className="underline text-blue-300">Русская версия здесь</a></p>
           </div>
         );
 
-        if (content === "скачать здесь") hoverContent = (
-          <div>
-            <p><a href="public/Mark-Mikhalev-CV-En.pdf">English version here</a></p>
+        if (content === "здесь") hoverContent = (
+          <div className="indent-0">
+            <p className="m-0"><a href="public/Mark-Mikhalev-CV-En.pdf" className="underline text-blue-300">English version here</a></p>
           </div>
         );
+
+        const hoverCardClass = (content === "download my CV here" || content === "здесь") ? "bg-popover border opacity-90 w-fit px-3 py-1.5" : "";
 
         if (domNode.children[0]?.type === 'tag') {
           // link - need to parse the link properly
@@ -208,7 +210,7 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
           return (
             <HoverCard>
               <HoverCardTrigger asChild className="underline decoration-dotted text-blue-300">{linkElement}</HoverCardTrigger>
-              <HoverCardContent side="top">{hoverContent}</HoverCardContent>
+              <HoverCardContent side="top" className={hoverCardClass}>{hoverContent}</HoverCardContent>
             </HoverCard>
           );
         } else {
@@ -218,7 +220,7 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
               <HoverCardTrigger className="underline decoration-dotted text-blue-300 inline-block p-0 h-auto bg-transparent border-none shadow-none hover:bg-transparent indent-0">
                 {content}
               </HoverCardTrigger>
-              <HoverCardContent side="top">{hoverContent}</HoverCardContent>
+              <HoverCardContent side="top" className={hoverCardClass}>{hoverContent}</HoverCardContent>
             </HoverCard>
           );
         }
