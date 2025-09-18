@@ -73,21 +73,12 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
   const actualResumeData = resumeData || contextResumeData;
 
   const [obfuscatedName, setObfuscatedName] = useState('');
-  const h1Ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
     if (actualResumeData?.name) {
-      const encoded = btoa(actualResumeData.name);
+      const encoded = btoa(encodeURIComponent(actualResumeData.name));
       const reversed = actualResumeData.name.split('').reverse().join('');
-      console.log('Original name:', actualResumeData.name);
-      console.log('Encoded name:', encoded);
-      console.log('Reversed name for DOM:', reversed);
-      setObfuscatedName(encoded);
-      setTimeout(() => {
-        if (h1Ref.current) {
-          h1Ref.current.textContent = reversed;
-        }
-      }, 0);
+      setObfuscatedName(reversed);
     }
   }, [actualResumeData?.name]);
 
@@ -112,11 +103,18 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
     modified = modified.replace(/второй ренессанс/g, '<span class="hovercard">второй ренессанс</span>');
     modified = modified.replace(/second renaissance/g, '<span class="hovercard">second renaissance</span>');
 
+    // Hover cards for links
+    modified = modified.replace(/download my CV here/g, '<span class="hovercard">download my CV here</span>');
+    modified = modified.replace(/скачать здесь/g, '<span class="hovercard">скачать здесь</span>');
+    modified = modified.replace(/book a Calendly slot/g, '<span class="hovercard">book a Calendly slot</span>');
+    modified = modified.replace(/бронируйте созвон в Calendly/g, '<span class="hovercard">бронируйте созвон в Calendly</span>');
+
     // Make text strings into inline URLs
-    modified = modified.replace(/download my CV here/g, '<Obfuscate href="public/Mark-Mikhalev-CV-En.pdf" target="_blank" rel="nofollow" class="underline text-blue-300">download my CV here</Obfuscate>');
-    modified = modified.replace(/скачать здесь/g, '<Obfuscate href="public/Mark-Mikhalev-CV-Ru.pdf" target="_blank" rel="nofollow" class="underline text-blue-300">скачать здесь</Obfuscate>');
-    modified = modified.replace(/book a Calendly slot/g, '<Obfuscate href="https://calendly.com/markplusgood/15min-chat" target="_blank" rel="nofollow" class="underline text-blue-300">book a Calendly slot</Obfuscate>');
-    modified = modified.replace(/бронируйте созвон в Calendly/g, '<Obfuscate href="https://calendly.com/markplusgood/15min-chat" target="_blank" rel="nofollow" class="underline text-blue-300">бронируйте созвон в Calendly</Obfuscate>');
+    modified = modified.replace(/download my CV here/g, '<Obfuscate href="public/Mark-Mikhalev-CV-En.pdf" target="_blank" rel="nofollow" class="underline text-blue-300" style="direction: ltr;">download my CV here</Obfuscate>');
+    modified = modified.replace(/скачать здесь/g, '<Obfuscate href="public/Mark-Mikhalev-CV-Ru.pdf" target="_blank" rel="nofollow" class="underline text-blue-300" style="direction: ltr;">скачать здесь</Obfuscate>');
+    modified = modified.replace(/book a Calendly slot/g, '<Obfuscate href="https://calendly.com/markplusgood/15min-chat" target="_blank" rel="nofollow" class="underline text-blue-300" style="direction: ltr;">book a Calendly slot</Obfuscate>');
+    modified = modified.replace(/бронируйте созвон в Calendly/g, '<Obfuscate href="https://calendly.com/markplusgood/15min-chat" target="_blank" rel="nofollow" class="underline text-blue-300" style="direction: ltr;">бронируйте созвон в Calendly</Obfuscate>');
+
 
     return modified;
   };
@@ -125,7 +123,7 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
     replace: (domNode: any) => {
       if (domNode.name === 'obfuscate') {
         const { href, target, rel, className } = domNode.attribs;
-        return <Obfuscate href={href} target={target} rel={rel} className={className}>{domToReact(domNode.children)}</Obfuscate>;
+        return <Obfuscate href={href} target={target} rel={rel} className={className} obfuscateChildren={false}>{domToReact(domNode.children)}</Obfuscate>;
       }
       if (domNode.name === 'span' && domNode.attribs?.class === 'tooltip') {
         const word = domNode.children[0].data;
@@ -192,9 +190,21 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
           </div>
         );
 
+        if (content === "download my CV here") hoverContent = (
+          <div>
+            <p><a href="public/Mark-Mikhalev-CV-Ru.pdf">Или скачать русскую версию</a></p>
+          </div>
+        );
+
+        if (content === "скачать здесь") hoverContent = (
+          <div>
+            <p><a href="public/Mark-Mikhalev-CV-En.pdf">English version here</a></p>
+          </div>
+        );
+
         if (domNode.children[0]?.type === 'tag') {
           // link - need to parse the link properly
-          const linkElement = domToReact(domNode.children);
+          const linkElement = domToReact(domNode.children, parseOptions);
           return (
             <HoverCard>
               <HoverCardTrigger asChild className="underline decoration-dotted text-blue-300">{linkElement}</HoverCardTrigger>
@@ -231,7 +241,7 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
         <section className="mx-auto w-full max-w-2xl space-y-8 bg-background print:space-y-4">
           <div className="flex flex-col items-center justify-center">
             <div className="space-y-1.5 text-center">
-              <Obfuscate ref={h1Ref} element="h1" className="text-2xl font-bold font-jakarta" style={{textAlign:'left'}}>{obfuscatedName}</Obfuscate>
+              <h1 className="text-2xl font-bold font-jakarta" style={{ direction: 'rtl', unicodeBidi: 'bidi-override' }}>{obfuscatedName}</h1>
               <SmartLineBreak
                 text={actualResumeData.about}
                 className="max-w-md text-pretty font-sans text-sm text-muted-foreground print:text-[12px]"
