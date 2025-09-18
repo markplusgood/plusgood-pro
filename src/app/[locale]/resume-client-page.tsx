@@ -88,8 +88,8 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
     modified = modified.replace(/second renaissance/g, '<span class="hovercard">second renaissance</span>');
 
     // Make text strings into inline URLs
-    modified = modified.replace(/download my CV here/g, '<a href="#" target="_blank" rel="nofollow" class="underline text-blue-300">download my CV here</a>');
-    modified = modified.replace(/скачать здесь/g, '<a href="#" target="_blank" rel="nofollow" class="underline text-blue-300">скачать здесь</a>');
+    modified = modified.replace(/download my CV here/g, '<a href="public/Mark-Mikhalev-CV-En.pdf" target="_blank" rel="nofollow" class="underline text-blue-300">download my CV here</a>');
+    modified = modified.replace(/скачать здесь/g, '<a href="public/Mark-Mikhalev-CV-Ru.pdf" target="_blank" rel="nofollow" class="underline text-blue-300">скачать здесь</a>');
     modified = modified.replace(/book a Calendly slot/g, '<a href="https://calendly.com/markplusgood/15min-chat" target="_blank" rel="nofollow" class="underline text-blue-300">book a Calendly slot</a>');
     modified = modified.replace(/бронируйте созвон в Calendly/g, '<a href="https://calendly.com/markplusgood/15min-chat" target="_blank" rel="nofollow" class="underline text-blue-300">бронируйте созвон в Calendly</a>');
 
