@@ -14,7 +14,7 @@ import { useMounted } from "@/lib/hooks";
 import { useTheme } from "next-themes";
 import { ThemeAwareHeart } from "@/components/ui/theme-aware-heart";
 import { ScrollToTopButton } from "@/components/ScrollToTopButton";
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useTranslations } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
 import { ActionButtons } from '@/components/ActionButtons';
@@ -22,6 +22,7 @@ import AsciiAnimation from '@/components/AsciiAnimation';
 import RabbitAnimation from '@/components/RabbitAnimation';
 import { useMobileBar } from '@/components/MobileBarContext';
 import parse, { domToReact } from 'html-react-parser';
+import Obfuscate from 'react-obfuscate';
 
 interface Social {
   name: string;
@@ -70,7 +71,31 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
   const pathname = usePathname();
 
   const actualResumeData = resumeData || contextResumeData;
+
+  const [obfuscatedName, setObfuscatedName] = useState('');
+  const h1Ref = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (actualResumeData?.name) {
+      const encoded = btoa(actualResumeData.name);
+      const reversed = actualResumeData.name.split('').reverse().join('');
+      console.log('Original name:', actualResumeData.name);
+      console.log('Encoded name:', encoded);
+      console.log('Reversed name for DOM:', reversed);
+      setObfuscatedName(encoded);
+      setTimeout(() => {
+        if (h1Ref.current) {
+          h1Ref.current.textContent = reversed;
+        }
+      }, 0);
+    }
+  }, [actualResumeData?.name]);
+
   if (!actualResumeData) return null;
+
+  const obfuscate = (text: string) => {
+    return text.split('').map(char => `&#${char.charCodeAt(0)};`).join('');
+  };
 
   const modifyParagraph = (paragraph: string) => {
     let modified = paragraph;
@@ -88,16 +113,20 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
     modified = modified.replace(/second renaissance/g, '<span class="hovercard">second renaissance</span>');
 
     // Make text strings into inline URLs
-    modified = modified.replace(/download my CV here/g, '<a href="public/Mark-Mikhalev-CV-En.pdf" target="_blank" rel="nofollow" class="underline text-blue-300">download my CV here</a>');
-    modified = modified.replace(/скачать здесь/g, '<a href="public/Mark-Mikhalev-CV-Ru.pdf" target="_blank" rel="nofollow" class="underline text-blue-300">скачать здесь</a>');
-    modified = modified.replace(/book a Calendly slot/g, '<a href="https://calendly.com/markplusgood/15min-chat" target="_blank" rel="nofollow" class="underline text-blue-300">book a Calendly slot</a>');
-    modified = modified.replace(/бронируйте созвон в Calendly/g, '<a href="https://calendly.com/markplusgood/15min-chat" target="_blank" rel="nofollow" class="underline text-blue-300">бронируйте созвон в Calendly</a>');
+    modified = modified.replace(/download my CV here/g, '<Obfuscate href="public/Mark-Mikhalev-CV-En.pdf" target="_blank" rel="nofollow" class="underline text-blue-300">download my CV here</Obfuscate>');
+    modified = modified.replace(/скачать здесь/g, '<Obfuscate href="public/Mark-Mikhalev-CV-Ru.pdf" target="_blank" rel="nofollow" class="underline text-blue-300">скачать здесь</Obfuscate>');
+    modified = modified.replace(/book a Calendly slot/g, '<Obfuscate href="https://calendly.com/markplusgood/15min-chat" target="_blank" rel="nofollow" class="underline text-blue-300">book a Calendly slot</Obfuscate>');
+    modified = modified.replace(/бронируйте созвон в Calendly/g, '<Obfuscate href="https://calendly.com/markplusgood/15min-chat" target="_blank" rel="nofollow" class="underline text-blue-300">бронируйте созвон в Calendly</Obfuscate>');
 
     return modified;
   };
 
   const parseOptions = {
     replace: (domNode: any) => {
+      if (domNode.name === 'obfuscate') {
+        const { href, target, rel, className } = domNode.attribs;
+        return <Obfuscate href={href} target={target} rel={rel} className={className}>{domToReact(domNode.children)}</Obfuscate>;
+      }
       if (domNode.name === 'span' && domNode.attribs?.class === 'tooltip') {
         const word = domNode.children[0].data;
         let content: React.ReactNode = "Tooltip content";
@@ -202,7 +231,7 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
         <section className="mx-auto w-full max-w-2xl space-y-8 bg-background print:space-y-4">
           <div className="flex flex-col items-center justify-center">
             <div className="space-y-1.5 text-center">
-              <h1 className="text-2xl font-bold font-jakarta">{actualResumeData.name}</h1>
+              <Obfuscate ref={h1Ref} element="h1" className="text-2xl font-bold font-jakarta" style={{textAlign:'left'}}>{obfuscatedName}</Obfuscate>
               <SmartLineBreak
                 text={actualResumeData.about}
                 className="max-w-md text-pretty font-sans text-sm text-muted-foreground print:text-[12px]"

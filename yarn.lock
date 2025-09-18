@@ -1019,6 +1019,13 @@
   dependencies:
     undici-types "~6.21.0"
 
+"@types/node@^20.14.0":
+  version "20.19.17"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.19.17.tgz#41b52697373aef8a43b3b92f33b43f329b2d674b"
+  integrity sha512-gfehUI8N1z92kygssiuWvLiwcbOB3IRktR6hTDgJlXMYh5OvkPSRmgfoBUmfZt+vhwJtX7v1Yw4KvvAf7c5QKQ==
+  dependencies:
+    undici-types "~6.21.0"
+
 "@types/prop-types@*":
   version "15.7.15"
   resolved "https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.15.tgz"
@@ -3735,6 +3742,11 @@ react-is@^16.13.1:
   version "16.13.1"
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
+
+react-obfuscate@^3.7.0:
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/react-obfuscate/-/react-obfuscate-3.7.0.tgz#835fee5707ec9e62fc6e123edf423c7ee43d0c88"
+  integrity sha512-y/sd0W8VuzoH6kGXjwdFCvCRxqBeffyaxrqyfWjACY8Ejl9sGaJbRf1iJXHYkQU4Va81G2triRkgHhsfNIx5FQ==
 
 react-property@2.0.2:
   version "2.0.2"

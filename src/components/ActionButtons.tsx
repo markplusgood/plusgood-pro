@@ -2,6 +2,7 @@ import { MailIcon, MoonIcon, SunIcon, LanguagesIcon, CalendarDaysIcon } from "lu
 import { SiTelegram, SiX } from '@icons-pack/react-simple-icons';
 import { Button } from "@/components/ui/button";
 import { GitHubIcon, LinkedInIcon } from '@/components/icons';
+import Obfuscate from 'react-obfuscate';
 
 interface ActionButtonsProps {
     resumeData: {
@@ -64,11 +65,12 @@ export function ActionButtons({
                     size="icon"
                     asChild
                 >
-                    <a href={`mailto:${resumeData.contact.email}`} target="_blank" className="hover:bg-accent hover:text-accent-foreground focus-visible:bg-accent focus-visible:text-accent-foreground">
+                    {/* @ts-ignore */}
+                    <Obfuscate email={resumeData.contact.email} target="_blank" className="hover:bg-accent hover:text-accent-foreground focus-visible:bg-accent focus-visible:text-accent-foreground">
                         <span className="normal-blend-mode">
                             <MailIcon className="size-4" />
                         </span>
-                    </a>
+                    </Obfuscate>
                 </Button>
             ) : null}
             <Button
@@ -77,11 +79,12 @@ export function ActionButtons({
                 size="icon"
                 asChild
             >
-                <a href="https://calendly.com/markplusgood/15min-chat" target="_blank" rel="noopener noreferrer" className="hover:bg-accent hover:text-accent-foreground focus-visible:bg-accent focus-visible:text-accent-foreground">
+                {/* @ts-ignore */}
+                <Obfuscate href="https://calendly.com/markplusgood/15min-chat" target="_blank" rel="noopener noreferrer" className="hover:bg-accent hover:text-accent-foreground focus-visible:bg-accent focus-visible:text-accent-foreground">
                     <span className="normal-blend-mode">
                         <CalendarDaysIcon className="size-4" />
                     </span>
-                </a>
+                </Obfuscate>
             </Button>
             {resumeData.contact.tel ? (
                 <Button
@@ -90,11 +93,12 @@ export function ActionButtons({
                     size="icon"
                     asChild
                 >
-                    <a href={`https://t.me/markplusgood`} target="_blank" className="hover:bg-accent hover:text-accent-foreground focus-visible:bg-accent focus-visible:text-accent-foreground">
+                    {/* @ts-ignore */}
+                    <Obfuscate href={`https://t.me/markplusgood`} target="_blank" className="hover:bg-accent hover:text-accent-foreground focus-visible:bg-accent focus-visible:text-accent-foreground">
                         <span className="normal-blend-mode">
                             <SiTelegram className="size-4" />
                         </span>
-                    </a>
+                    </Obfuscate>
                 </Button>
             ) : null}
             {resumeData.contact.social?.find(s => s.icon === 'github') && (
@@ -104,11 +108,12 @@ export function ActionButtons({
                     size="icon"
                     asChild
                 >
-                    <a href={resumeData.contact.social.find(s => s.icon === 'github')!.url} target="_blank" rel="noopener noreferrer" className="hover:bg-accent hover:text-accent-foreground">
+                    {/* @ts-ignore */}
+                    <Obfuscate href={resumeData.contact.social.find(s => s.icon === 'github')!.url} target="_blank" rel="noopener noreferrer" className="hover:bg-accent hover:text-accent-foreground">
                         <span className="normal-blend-mode">
                             <GitHubIcon className="size-4" />
                         </span>
-                    </a>
+                    </Obfuscate>
                 </Button>
             )}
             {resumeData.contact.social?.find(s => s.icon === 'linkedin') && (
@@ -118,11 +123,12 @@ export function ActionButtons({
                     size="icon"
                     asChild
                 >
-                    <a href={resumeData.contact.social.find(s => s.icon === 'linkedin')!.url} target="_blank" rel="noopener noreferrer" className="hover:bg-accent hover:text-accent-foreground focus-visible:bg-accent focus-visible:text-accent-foreground">
+                    {/* @ts-ignore */}
+                    <Obfuscate href={resumeData.contact.social.find(s => s.icon === 'linkedin')!.url} target="_blank" rel="noopener noreferrer" className="hover:bg-accent hover:text-accent-foreground focus-visible:bg-accent focus-visible:text-accent-foreground">
                         <span className="normal-blend-mode">
                             <LinkedInIcon className="size-4" />
                         </span>
-                    </a>
+                    </Obfuscate>
                 </Button>
             )}
             {resumeData.contact.social?.find(s => s.icon === 'x') && (
@@ -132,11 +138,12 @@ export function ActionButtons({
                     size="icon"
                     asChild
                 >
-                    <a href={resumeData.contact.social.find(s => s.icon === 'x')!.url} target="_blank" rel="noopener noreferrer" className="hover:bg-accent hover:text-accent-foreground focus-visible:bg-accent focus-visible:text-accent-foreground">
+                    {/* @ts-ignore */}
+                    <Obfuscate href={resumeData.contact.social.find(s => s.icon === 'x')!.url} target="_blank" rel="noopener noreferrer" className="hover:bg-accent hover:text-accent-foreground focus-visible:bg-accent focus-visible:text-accent-foreground">
                         <span className="normal-blend-mode">
                             <SiX className="size-4" />
                         </span>
-                    </a>
+                    </Obfuscate>
                 </Button>
             )}
         </div>
