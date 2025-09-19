@@ -276,7 +276,7 @@ export default function ResumeClientPage({ locale, resumeData }: { locale: strin
 
 
           </div>
-          <div className="w-full h-56 bg-transparent overflow-hidden flex items-center justify-center -mt-8">
+          <div className="w-full h-56 bg-transparent overflow-hidden flex items-center justify-center mobile-rabbit-margins">
             {/* <AsciiAnimation /> */}
             <RabbitAnimation />
           </div>

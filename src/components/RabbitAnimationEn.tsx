@@ -56,8 +56,11 @@ export default function RabbitAnimation() {
 
     return (
         <div
-            className="w-full h-full flex items-center justify-center font-mono text-xs text-muted-foreground whitespace-pre"
-            style={{ fontSize: 'clamp(1px, 12px, 18px)' }}
+            className="w-full h-full flex items-center justify-center font-mono text-muted-foreground whitespace-pre"
+            style={{
+                fontSize: 'clamp(2px, 1.2vw, 10px)',
+                maxHeight: '100%'
+            }}
             dangerouslySetInnerHTML={{ __html: fcontent[currentFrame] }}
         />
     );

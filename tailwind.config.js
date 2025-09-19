@@ -21,6 +21,7 @@ module.exports = {
     screens: {
       'xs': '577px',
       'custom': '903px',
+      'ultrawide': '1400px',
     },
     extend: {
       fontFamily: {
